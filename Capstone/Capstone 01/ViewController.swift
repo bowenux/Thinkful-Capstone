@@ -10,26 +10,29 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-        
-    var player: AVPlayer!
     
-    var audioDetailName = ""
-    var audioDetailUrlSrc = ""
+    var player:AVPlayer?
+    var audioDetailName:String?
+    var audioDetailUrlSrc:String?
+    
+    
+    func playURL() {
+        
+        var url = NSURL.URLWithString(self.audioDetailUrlSrc!)
+        self.player = AVPlayer.playerWithURL(url) as? AVPlayer
+        println("player: with URL \(self.audioDetailUrlSrc)")
+        self.player?.play()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        
-        var url = NSURL.URLWithString(self.audioDetailUrlSrc)
-        self.player = AVPlayer.playerWithURL(url) as AVPlayer
-        println("player: with URL \(self.audioDetailUrlSrc)")
-        
-        self.player.play()
-        println("player: play()")
+        self.playURL()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,9 +57,8 @@ class ViewController: UIViewController {
         let rc = event.subtype
         println("received remote control ")
         
-        let p = self.player
-        
-        switch rc {
+        if let p = self.player {
+            switch rc {
             case .RemoteControlTogglePlayPause:
                 if p.externalPlaybackActive { p.pause() } else { p.play() }
             case .RemoteControlPlay:
@@ -64,10 +66,12 @@ class ViewController: UIViewController {
             case .RemoteControlPause:
                 p.pause()
             default:break
+            }
+        } else {
+            //player not initiated
         }
-        
     }
-
-
+    
+    
 }
 
