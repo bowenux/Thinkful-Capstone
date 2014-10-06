@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    
+        
     var player: AVPlayer!
     
     var audioDetailName = ""
@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
         var url = NSURL.URLWithString(self.audioDetailUrlSrc)
         self.player = AVPlayer.playerWithURL(url) as AVPlayer
@@ -31,6 +33,39 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    
+    // ======== respond to remote controls
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
+        let rc = event.subtype
+        println("received remote control ")
+        
+        let p = self.player
+        
+        switch rc {
+            case .RemoteControlTogglePlayPause:
+                if p.externalPlaybackActive { p.pause() } else { p.play() }
+            case .RemoteControlPlay:
+                p.play()
+            case .RemoteControlPause:
+                p.pause()
+            default:break
+        }
+        
     }
 
 
