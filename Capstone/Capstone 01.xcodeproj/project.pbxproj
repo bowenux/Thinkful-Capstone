@@ -23,6 +23,8 @@
 		1DEFB78F19E0AD2C00B478CA /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78419E0AD2C00B478CA /* AFURLRequestSerialization.m */; };
 		1DEFB79019E0AD2C00B478CA /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78619E0AD2C00B478CA /* AFURLResponseSerialization.m */; };
 		1DEFB79119E0AD2C00B478CA /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78819E0AD2C00B478CA /* AFURLSessionManager.m */; };
+		F417135219E35248000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
+		F417135319E35363000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 		1DEFB78719E0AD2C00B478CA /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		1DEFB78819E0AD2C00B478CA /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		1DEFB79219E0ADA200B478CA /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		F417135119E35248000A6202 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 				1DB13F7C19DE3BC800A60A64 /* Images.xcassets */,
 				1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */,
 				1DB13F7319DE3BC800A60A64 /* Supporting Files */,
+				F417135119E35248000A6202 /* APIClient.swift */,
 			);
 			path = "Capstone 01";
 			sourceTree = "<group>";
@@ -286,6 +290,7 @@
 				1DEFB78D19E0AD2C00B478CA /* AFSecurityPolicy.m in Sources */,
 				1DEFB78B19E0AD2C00B478CA /* AFHTTPSessionManager.m in Sources */,
 				1DEFB78F19E0AD2C00B478CA /* AFURLRequestSerialization.m in Sources */,
+				F417135219E35248000A6202 /* APIClient.swift in Sources */,
 				1DEFB79119E0AD2C00B478CA /* AFURLSessionManager.m in Sources */,
 				1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DB13F8C19DE3BC800A60A64 /* Capstone_01Tests.swift in Sources */,
+				F417135319E35363000A6202 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +452,7 @@
 				INFOPLIST_FILE = "Capstone 01Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Capstone 01.app/Capstone 01";
 			};
 			name = Debug;
@@ -461,6 +468,7 @@
 				INFOPLIST_FILE = "Capstone 01Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Capstone 01.app/Capstone 01";
 			};
 			name = Release;
