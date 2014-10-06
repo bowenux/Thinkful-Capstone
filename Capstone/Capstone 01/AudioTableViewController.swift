@@ -10,35 +10,45 @@ import UIKit
 
 class AudioTableViewController: UITableViewController {
     
-    var audios = []
+    struct audioInfo {
+        var name: String
+        var thumbnail: String
+        var urlSrc: String
+    }
+    var audios: [audioInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println("calling api...")
         
         let manager = AFHTTPRequestOperationManager()
         manager.GET( "http://api.bowenux.com/v1/audio",
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
                 
-                println("JSON: " + responseObject.description)
+                print("looping over api data...")
                 
+                //println("JSON: " + responseObject.description)
                 
                 if let dataArray = responseObject.valueForKey("data") as? [AnyObject] {
                     for var i = 0; i < dataArray.count; i++ {
                         let dataObject: AnyObject = dataArray[i]
-                        if let audioName = dataObject.valueForKeyPath("name") as? String {
-                            // audios.append(audioName) //append audios array (not working!) 
-                            println(audioName)
-                        }
+                        let audioName = dataObject.valueForKeyPath("name") as? String
+                        let audioThumb = dataObject.valueForKeyPath("albumArtSmall") as? String
+                        let audioSrc = dataObject.valueForKeyPath("audioUrl") as? String
+                        
+                        var nextAudio = audioInfo(name: audioName!, thumbnail: audioThumb!, urlSrc: audioSrc!)
+                        self.audios.append(nextAudio)
                     }
                 }
-                
-                
+                println(" done")
+                self.tableView.reloadData()
             },
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("Error: " + error.localizedDescription)
         })
+        
         
         
 
@@ -59,20 +69,23 @@ class AudioTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
+        
+        
+        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 10
+        return audios.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
   //override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("audioListing", forIndexPath: indexPath) as UITableViewCell
 
-        cell.textLabel?.text = "Audio Title: \(indexPath.row)"
+        cell.textLabel?.text = audios[indexPath.row].name
 
         return cell
     }
@@ -113,14 +126,25 @@ class AudioTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ToAudioDetail"
+        {
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            let theSelectedRow = audios[indexPath!.row]
+            let theDestination = (segue.destinationViewController as ViewController)
+            
+            theDestination.audioDetailName = theSelectedRow.name
+            theDestination.audioDetailUrlSrc = theSelectedRow.urlSrc
+            
+        }
     }
-    */
+    
 
 }

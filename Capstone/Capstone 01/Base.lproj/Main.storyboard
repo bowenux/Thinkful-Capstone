@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="push" id="dUj-Ql-VcM"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" identifier="ToAudioDetail" id="dUj-Ql-VcM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

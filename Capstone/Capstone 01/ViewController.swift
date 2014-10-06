@@ -11,31 +11,20 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    var player:AVPlayer!
+    var player: AVPlayer!
     
+    var audioDetailName = ""
+    var audioDetailUrlSrc = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var url = NSURL.URLWithString("http://thejordanexperience.org/teachings/74/Examine_Yourself.mp3")
+        var url = NSURL.URLWithString(self.audioDetailUrlSrc)
         self.player = AVPlayer.playerWithURL(url) as AVPlayer
-        println("Player: init with URL")
+        println("player: with URL \(self.audioDetailUrlSrc)")
         
         self.player.play()
-        println("Player: playing...")
-
-        
-        
-        /*
-        let url = "http://thejordanexperience.org/teachings/74/Examine_Yourself.mp3"
-        let playerItem = AVPlayerItem(URL:NSURL(string:url))
-        self.player = AVPlayer(playerItem:playerItem)
-        self.player.play()
-        */
-        
-        //func playerWithURL(URL: NSURL!) -> AnyObject! {
-        //}
-        
+        println("player: play()")
         
     }
 
