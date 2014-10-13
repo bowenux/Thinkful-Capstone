@@ -10,18 +10,38 @@ import UIKit
 
 class AudioTableViewController: UITableViewController {
     
+    let dataManager = APIDataManager()
+   /*
     struct audioInfo {
         var name: String
         var thumbnail: String
         var urlSrc: String
     }
     var audios: [audioInfo] = []
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         println("calling api...")
         
+        var audioData = dataManager.getAllAudio()
+        println(audioData)
+        
+        //client.getAudio(response: AnyObject, failure: <#(NSError) -> ()##(NSError) -> ()#>)
+        /*
+        var m = client.getAudio({ (response :AnyObject) in
+            
+            println("response - \(response)")
+            
+            }, failure: {
+                (error :NSError) in
+                
+                println("error - \(error)")
+        })
+        */
+        
+        
+        /*
         let manager = AFHTTPRequestOperationManager()
         manager.GET( "http://api.bowenux.com/v1/audio",
             parameters: nil,
@@ -48,7 +68,7 @@ class AudioTableViewController: UITableViewController {
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("Error: " + error.localizedDescription)
         })
-        
+        */
         
         
 
@@ -78,14 +98,13 @@ class AudioTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return audios.count
+        return 1//audios.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  //override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("audioListing", forIndexPath: indexPath) as UITableViewCell
 
-        cell.textLabel?.text = audios[indexPath.row].name
+        cell.textLabel?.text = "test"//audios[indexPath.row].name
 
         return cell
     }
@@ -128,7 +147,7 @@ class AudioTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
+/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
@@ -145,6 +164,6 @@ class AudioTableViewController: UITableViewController {
             
         }
     }
-    
+*/
 
 }
