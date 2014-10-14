@@ -8,25 +8,29 @@
 
 import Foundation
 
+protocol GetAudioCallBack
+{
+    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject])
+}
+
 class APIDataManager
 {
     let client = APIClient()
+    var delegate: GetAudioCallBack?
     
-    var audioArray:[JordanAudioObject] = []
+    init() { }
     
-    
-    
-    //var response: [] = []
-    
-    func getAllAudio() -> [JordanAudioObject]
+    func getAllAudio() //-> [JordanAudioObject]
     {
         var parsedResponse:[JordanAudioObject]?
         
         client.getAudio(
         {
             (response :AnyObject) in
-            println("response - \(response)")        
+            //println("response - \(response)")
             parsedResponse = self.parse(response)
+            self.delegate!.didApiRespond(self, response: parsedResponse!)
+            // check if deletegate != nil
         },
         failure:
         {
@@ -35,25 +39,29 @@ class APIDataManager
             println("error - \(error)")
         })
 
-        return parsedResponse!
+        //return parsedResponse!
     }
     
     func parse(response: AnyObject) -> [JordanAudioObject]
     {
         var parsedResponse:[JordanAudioObject] = []
-
-        for var i = 0; i < response.count; i++
-        {
-            var apiAudioItem = JordanAudioObject()
-            let dataObject: AnyObject = response[i]
+        
+        println("AudioObject at parse()")
+        
+        if let dataArray = response.valueForKey("data") as? [AnyObject] {
             
-            apiAudioItem.name =             dataObject.valueForKeyPath("name") as String
-            apiAudioItem.albumArtThumb =    dataObject.valueForKeyPath("albumArtSmall") as String
-            apiAudioItem.urlSrc =           dataObject.valueForKeyPath("audioUrl") as String
-            
-            //println(apiAudioItem)
-            
-            //parsedResponse.append(nextAudio)
+            for var i = 0; i < dataArray.count; i++
+            {
+                var apiAudioItem = JordanAudioObject()
+                let dataObject: AnyObject = dataArray[i]
+                
+                apiAudioItem.name =             dataObject.valueForKeyPath("name") as String
+                apiAudioItem.albumArtThumb =    dataObject.valueForKeyPath("albumArtSmall") as String
+                apiAudioItem.urlSrc =           dataObject.valueForKeyPath("audioUrl") as String
+                
+                //println("name")
+                
+            }
         }
         return parsedResponse
     }

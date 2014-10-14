@@ -8,26 +8,25 @@
 
 import UIKit
 
-class AudioTableViewController: UITableViewController {
-    
+class AudioTableViewController: UITableViewController, GetAudioCallBack
+{
     let dataManager = APIDataManager()
-   /*
-    struct audioInfo {
-        var name: String
-        var thumbnail: String
-        var urlSrc: String
+    
+    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject]) {
+        println("AudioObject at didAPIRespond()")
     }
-    var audios: [audioInfo] = []
-    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         println("calling api...")
         
-        var audioData = dataManager.getAllAudio()
-        println(audioData)
+        //self.dataManager.delegate = self
+        var audioData: () = self.dataManager.getAllAudio()
         
-        //client.getAudio(response: AnyObject, failure: <#(NSError) -> ()##(NSError) -> ()#>)
+
+        
+        //client.getAudio(response: AnyObject, failure:)
         /*
         var m = client.getAudio({ (response :AnyObject) in
             

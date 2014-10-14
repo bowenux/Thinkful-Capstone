@@ -11,7 +11,7 @@ import XCTest
 
 class DataManagerTests: XCTestCase {
     
-    var dataManager = APIDataManger()
+    var dm = APIDataManager()
     
     override func setUp() {
         super.setUp()
@@ -33,6 +33,14 @@ class DataManagerTests: XCTestCase {
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testDataManager(){
+        //var result: AnyObject? = dm.delegate
+        //var result = dm.getAllAudio()
+        
+        //println(result)
+        //XCTAssertNotNil(result, "passed!")
     }
 
 }
