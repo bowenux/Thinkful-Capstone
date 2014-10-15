@@ -11,9 +11,15 @@ import UIKit
 class AudioTableViewController: UITableViewController, GetAudioCallBack
 {
     let dataManager = APIDataManager()
+    var allAudio:[JordanAudioObject] = []
     
     func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject]) {
         println("AudioObject at didAPIRespond()")
+        
+        self.allAudio = response
+        
+        println("reloading table data...")
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -21,56 +27,9 @@ class AudioTableViewController: UITableViewController, GetAudioCallBack
         
         println("calling api...")
         
-        //self.dataManager.delegate = self
+        self.dataManager.delegate = self
         var audioData: () = self.dataManager.getAllAudio()
         
-
-        
-        //client.getAudio(response: AnyObject, failure:)
-        /*
-        var m = client.getAudio({ (response :AnyObject) in
-            
-            println("response - \(response)")
-            
-            }, failure: {
-                (error :NSError) in
-                
-                println("error - \(error)")
-        })
-        */
-        
-        
-        /*
-        let manager = AFHTTPRequestOperationManager()
-        manager.GET( "http://api.bowenux.com/v1/audio",
-            parameters: nil,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                
-                print("looping over api data...")
-                
-                //println("JSON: " + responseObject.description)
-                
-                if let dataArray = responseObject.valueForKey("data") as? [AnyObject] {
-                    for var i = 0; i < dataArray.count; i++ {
-                        let dataObject: AnyObject = dataArray[i]
-                        let audioName = dataObject.valueForKeyPath("name") as? String
-                        let audioThumb = dataObject.valueForKeyPath("albumArtSmall") as? String
-                        let audioSrc = dataObject.valueForKeyPath("audioUrl") as? String
-                        
-                        var nextAudio = audioInfo(name: audioName!, thumbnail: audioThumb!, urlSrc: audioSrc!)
-                        self.audios.append(nextAudio)
-                    }
-                }
-                println(" done")
-                self.tableView.reloadData()
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                println("Error: " + error.localizedDescription)
-        })
-        */
-        
-        
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -87,24 +46,28 @@ class AudioTableViewController: UITableViewController, GetAudioCallBack
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        
-        
-        
+        // Return the number of sections.        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1//audios.count
+        return self.allAudio.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("audioListing", forIndexPath: indexPath) as UITableViewCell
-
-        cell.textLabel?.text = "test"//audios[indexPath.row].name
-
+        
+        if !self.allAudio.isEmpty
+        {
+            cell.textLabel?.text = self.allAudio[indexPath.row].name
+        }
+        else
+        {
+            println("array of AudioObject is empty")
+        }
+        
         return cell
     }
 

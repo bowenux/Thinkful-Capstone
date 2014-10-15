@@ -20,17 +20,13 @@ class APIDataManager
     
     init() { }
     
-    func getAllAudio() //-> [JordanAudioObject]
+    func getAllAudio()
     {
-        var parsedResponse:[JordanAudioObject]?
-        
         client.getAudio(
         {
             (response :AnyObject) in
-            //println("response - \(response)")
-            parsedResponse = self.parse(response)
-            self.delegate!.didApiRespond(self, response: parsedResponse!)
-            // check if deletegate != nil
+            println("AudioObject at getAudio.complete()")
+            self.parse(response)
         },
         failure:
         {
@@ -42,7 +38,7 @@ class APIDataManager
         //return parsedResponse!
     }
     
-    func parse(response: AnyObject) -> [JordanAudioObject]
+    func parse(response: AnyObject) //-> [JordanAudioObject]
     {
         var parsedResponse:[JordanAudioObject] = []
         
@@ -59,10 +55,24 @@ class APIDataManager
                 apiAudioItem.albumArtThumb =    dataObject.valueForKeyPath("albumArtSmall") as String
                 apiAudioItem.urlSrc =           dataObject.valueForKeyPath("audioUrl") as String
                 
+                parsedResponse.append(apiAudioItem)
                 //println("name")
                 
             }
         }
-        return parsedResponse
+        
+        if let dmDelegate = self.delegate?
+        {
+            
+            dmDelegate.didApiRespond(self, response: parsedResponse)
+            //self.delegate!.didApiRespond(self, response: parsedResponse)
+            
+        } else {
+            
+            println("No delegate set")
+            
+        }
+        
+        //return parsedResponse
     }
 }
