@@ -109,7 +109,7 @@ class AudioTableViewController: UITableViewController, GetAudioCallBack
 
     
     // MARK: - Navigation
-/*
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
@@ -118,14 +118,18 @@ class AudioTableViewController: UITableViewController, GetAudioCallBack
         if segue.identifier == "ToAudioDetail"
         {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let theSelectedRow = audios[indexPath!.row]
-            let theDestination = (segue.destinationViewController as ViewController)
+            let theSelectedRow = self.allAudio[indexPath!.row]
+            let theDestination = (segue.destinationViewController as AudioViewController)
             
             theDestination.audioDetailName = theSelectedRow.name
+            theDestination.audioDetailAlbumArt = theSelectedRow.albumArtLarge
             theDestination.audioDetailUrlSrc = theSelectedRow.urlSrc
+            theDestination.audioDetailSpeaker = theSelectedRow.speaker
+            theDestination.audioDetailDateRecorded = theSelectedRow.dateRecorded
+            theDestination.audioDetailLocationRecorded = theSelectedRow.locationRecorded
             
         }
     }
-*/
+
 
 }

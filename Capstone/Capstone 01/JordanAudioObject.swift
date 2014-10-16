@@ -8,17 +8,13 @@
 
 import Foundation
 
-
-
 class JordanAudioObject
 {
     var name = ""
     var urlSrc = ""
     var albumArtThumb = ""
     var albumArtLarge = ""
-    
-    
-    //var audio: [audioMeta] = []
-    
-   
+    var speaker = ""
+    var locationRecorded = ""
+    var dateRecorded = ""
 }

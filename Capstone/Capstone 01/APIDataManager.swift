@@ -51,12 +51,16 @@ class APIDataManager
                 var apiAudioItem = JordanAudioObject()
                 let dataObject: AnyObject = dataArray[i]
                 
+                //println(dataObject)
+                
                 apiAudioItem.name =             dataObject.valueForKeyPath("name") as String
                 apiAudioItem.albumArtThumb =    dataObject.valueForKeyPath("albumArtSmall") as String
+                apiAudioItem.albumArtLarge =    dataObject.valueForKeyPath("albumArtLarge") as String
                 apiAudioItem.urlSrc =           dataObject.valueForKeyPath("audioUrl") as String
+                apiAudioItem.dateRecorded =     dataObject.valueForKeyPath("date_recorded") as String
+                apiAudioItem.locationRecorded = dataObject.valueForKeyPath("location.name") as String
                 
                 parsedResponse.append(apiAudioItem)
-                //println("name")
                 
             }
         }
