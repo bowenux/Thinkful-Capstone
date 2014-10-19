@@ -8,10 +8,54 @@
 
 import UIKit
 
-class AudioTableViewController: UITableViewController, GetAudioCallBack
+class AudioTableViewController: UITableViewController,UIActionSheetDelegate, GetAudioCallBack
 {
     let dataManager = APIDataManager()
     var allAudio:[JordanAudioObject] = []
+    
+    @IBAction func filterAudio(sender: AnyObject) {
+        println("Sort was tapped")
+        
+        var sheet: UIActionSheet = UIActionSheet();
+        let title: String = "Sort by";
+        sheet.title  = title;
+        sheet.delegate = self;
+        sheet.addButtonWithTitle("Cancel");
+        sheet.addButtonWithTitle("Most Recent");
+        sheet.addButtonWithTitle("Title (A-Z)");
+        sheet.addButtonWithTitle("Title (Z-A)");
+        sheet.cancelButtonIndex = 0;
+        sheet.showInView(self.view);
+        
+    }
+    
+    func actionSheet(sheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
+        println("index %d %@", buttonIndex, sheet.buttonTitleAtIndex(buttonIndex));
+        
+        sortAudioTable(sheet.buttonTitleAtIndex(buttonIndex))
+        
+    }
+    
+    func sortAudioTable(column:String) -> ()
+    {
+        switch column
+        {
+            case "Most Recent":
+                self.allAudio.sort{ $0.dateRecorded < $1.dateRecorded }
+            
+            case "Title (A-Z)":
+                self.allAudio.sort{ $0.name < $1.name }
+            
+            case "Title (Z-A)":
+                self.allAudio.sort{ $0.name > $1.name }
+            
+            default:
+                println("Error: Unknown column to sort by...")
+        }
+        
+        
+        self.tableView.reloadData()
+    }
     
     func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject]) {
         println("AudioObject at didAPIRespond()")

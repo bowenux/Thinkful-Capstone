@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D176219F2A7140026A25D /* PlayerSegue.swift */; };
 		1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */; };
 		1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */; };
 		1DB13F7B19DE3BC800A60A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7919DE3BC800A60A64 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2D176219F2A7140026A25D /* PlayerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSegue.swift; sourceTree = "<group>"; };
 		1DB13F7019DE3BC800A60A64 /* Capstone 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone 01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB13F7419DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				1DECDA0819E378B7005B486B /* APIDataManager.swift */,
 				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
 				1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */,
+				1D2D176219F2A7140026A25D /* PlayerSegue.swift */,
 			);
 			path = "Capstone 01";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F417135219E35248000A6202 /* APIClient.swift in Sources */,
 				1DEFB79119E0AD2C00B478CA /* AFURLSessionManager.m in Sources */,
 				1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */,
+				1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */,
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
 			);

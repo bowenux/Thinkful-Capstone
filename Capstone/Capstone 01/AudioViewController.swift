@@ -29,7 +29,7 @@ class AudioViewController: UIViewController {
     
     @IBAction func playBtnTouch(sender: AnyObject) {
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        self.playURL()
+        //self.playURL()
         
     }
     
