@@ -8,10 +8,11 @@
 
 import UIKit
 
-class AudioTableViewController: UITableViewController,UIActionSheetDelegate, GetAudioCallBack
+class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UISearchBarDelegate, UISearchDisplayDelegate, GetAudioCallBack
 {
     let dataManager = APIDataManager()
     var allAudio:[JordanAudioObject] = []
+    var filteredAudio:[JordanAudioObject] = []
     
     @IBAction func filterAudio(sender: AnyObject) {
         println("Sort was tapped")
@@ -52,12 +53,34 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, Get
             default:
                 println("Error: Unknown column to sort by...")
         }
-        
-        
         self.tableView.reloadData()
     }
     
-    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject]) {
+    func filterContentForSearchText(searchText: String)
+    {
+        // Filter the array using the filter method
+        self.filteredAudio = self.allAudio.filter(
+        {
+            (allAudio: JordanAudioObject) -> Bool in
+            let stringMatch = allAudio.name.rangeOfString(searchText)
+            return stringMatch != nil
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool
+    {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool
+    {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+    
+    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject])
+    {
         println("AudioObject at didAPIRespond()")
         
         self.allAudio = response
@@ -98,11 +121,42 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, Get
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return self.allAudio.count
+        
+        if tableView == self.searchDisplayController!.searchResultsTableView
+        {
+            println("returning filtered number")
+            return self.filteredAudio.count
+        }
+        else
+        {
+            return self.allAudio.count
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("audioListing", forIndexPath: indexPath) as UITableViewCell
         
+        
+        
+        
+        //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
+        //let cell = self.tableView.dequeueReusableCellWithIdentifier("audioListing") as UITableViewCell
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("audioListing", forIndexPath: indexPath) as UITableViewCell
+        
+        var audio : JordanAudioObject
+        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            audio = self.filteredAudio[indexPath.row]
+        } else {
+            audio = self.allAudio[indexPath.row]
+        }
+        
+        
+        // Configure the cell
+        cell.textLabel!.text = audio.name
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator // what does this do?
+        
+        /*
         if !self.allAudio.isEmpty
         {
             cell.textLabel?.text = self.allAudio[indexPath.row].name
@@ -111,7 +165,7 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, Get
         {
             println("array of AudioObject is empty")
         }
-        
+        */
         return cell
     }
 

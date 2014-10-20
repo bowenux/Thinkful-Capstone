@@ -12,7 +12,9 @@ class BaseTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        println("BaseTabBarController loaded")
+        
         // Do any additional setup after loading the view.
     }
 

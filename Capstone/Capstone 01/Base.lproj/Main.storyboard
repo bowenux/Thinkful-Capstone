@@ -67,13 +67,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRh-Qc-EJ6">
                                 <rect key="frame" x="85" y="93" width="112" height="108"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-cG-Rkf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-cG-Rkf">
                                 <rect key="frame" x="156" y="259" width="288" height="50"/>
                                 <color key="backgroundColor" red="0.94585084915161133" green="0.94582253694534302" blue="0.9458385705947876" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5QF-Zg-bG9"/>
-                                    <constraint firstAttribute="width" constant="288" id="OSV-Jb-f1W"/>
-                                </constraints>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.26750418543815613" green="0.26749616861343384" blue="0.26750069856643677" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -87,6 +83,12 @@
                                     <segue destination="Zzd-s1-zyY" kind="custom" customClass="PlayerSegue" customModule="Capstone_01" id="JtS-NC-PD9"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cwt-CE-eGo">
+                                <rect key="frame" x="218" y="366" width="240" height="128"/>
+                                <connections>
+                                    <segue destination="nbE-LP-RS3" kind="embed" id="7j4-Zt-ceQ"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -151,6 +153,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="sZe-P3-qNL">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="TYj-r8-NQW" id="n6R-v4-FMj"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="audioListing" textLabel="Udv-RV-qgi" style="IBUITableViewCellStyleDefault" id="0Fh-gl-Z2L">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -182,15 +192,27 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="FUo-YA-SK2" id="1If-hm-3sH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVi-ox-IfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="FUo-YA-SK2">
+                    <connections>
+                        <outlet property="delegate" destination="TYj-r8-NQW" id="PZ4-fk-aZk"/>
+                        <outlet property="searchBar" destination="sZe-P3-qNL" id="oK3-a6-6Hl"/>
+                        <outlet property="searchContentsController" destination="TYj-r8-NQW" id="C8n-wz-NHI"/>
+                        <outlet property="searchResultsDataSource" destination="TYj-r8-NQW" id="lME-EF-0I8"/>
+                        <outlet property="searchResultsDelegate" destination="TYj-r8-NQW" id="3KQ-Vj-89p"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1584.375" y="82.394366197183089"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Base Tab Bar Controller-->
         <scene sceneID="zpS-hC-yZY">
             <objects>
-                <tabBarController id="x2T-1R-dj6" sceneMemberID="viewController">
+                <tabBarController id="x2T-1R-dj6" customClass="BaseTabBarController" customModule="Capstone_01" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YXX-tl-tBR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -308,6 +330,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOa-t2-8yo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="872"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="G2L-uP-E0N">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nbE-LP-RS3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ra7-9g-Il2"/>
+                        <viewControllerLayoutGuide type="bottom" id="6mI-B1-yEk"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="i8m-LB-Nig">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHD-e8-jas" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
