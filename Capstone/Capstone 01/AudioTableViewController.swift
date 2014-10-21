@@ -62,7 +62,8 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UIS
         self.filteredAudio = self.allAudio.filter(
         {
             (allAudio: JordanAudioObject) -> Bool in
-            let stringMatch = allAudio.name.rangeOfString(searchText)
+            //let stringMatch = allAudio.name.rangeOfString(searchText)
+            let stringMatch = allAudio.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return stringMatch != nil
         })
     }
@@ -120,11 +121,10 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UIS
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.allAudio.count
+       
         
         if tableView == self.searchDisplayController!.searchResultsTableView
         {
-            println("returning filtered number")
             return self.filteredAudio.count
         }
         else

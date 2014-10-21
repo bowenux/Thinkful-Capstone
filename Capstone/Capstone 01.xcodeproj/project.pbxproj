@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A737D42C86D74A2F84108AA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D30700CEE5D7D98669365B /* libPods.a */; };
 		1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D176219F2A7140026A25D /* PlayerSegue.swift */; };
 		1D660A7119F5C38A004619F7 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */; };
 		1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */; };
@@ -18,15 +19,6 @@
 		1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
 		1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */; };
 		1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */; };
-		1DEFB78919E0AD2C00B478CA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77719E0AD2C00B478CA /* AFHTTPRequestOperation.m */; };
-		1DEFB78A19E0AD2C00B478CA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77919E0AD2C00B478CA /* AFHTTPRequestOperationManager.m */; };
-		1DEFB78B19E0AD2C00B478CA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77B19E0AD2C00B478CA /* AFHTTPSessionManager.m */; };
-		1DEFB78C19E0AD2C00B478CA /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77E19E0AD2C00B478CA /* AFNetworkReachabilityManager.m */; };
-		1DEFB78D19E0AD2C00B478CA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78019E0AD2C00B478CA /* AFSecurityPolicy.m */; };
-		1DEFB78E19E0AD2C00B478CA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78219E0AD2C00B478CA /* AFURLConnectionOperation.m */; };
-		1DEFB78F19E0AD2C00B478CA /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78419E0AD2C00B478CA /* AFURLRequestSerialization.m */; };
-		1DEFB79019E0AD2C00B478CA /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78619E0AD2C00B478CA /* AFURLResponseSerialization.m */; };
-		1DEFB79119E0AD2C00B478CA /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB78819E0AD2C00B478CA /* AFURLSessionManager.m */; };
 		1DF249AB19EC8735004E4F4C /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */; };
 		1DF249AC19EC875D004E4F4C /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
 		1DF249AD19EC878B004E4F4C /* JordanAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */; };
@@ -61,28 +53,12 @@
 		1DECDA0819E378B7005B486B /* APIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataManager.swift; sourceTree = "<group>"; };
 		1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioObject.swift; sourceTree = "<group>"; };
 		1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
-		1DEFB77619E0AD2C00B478CA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		1DEFB77719E0AD2C00B478CA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		1DEFB77819E0AD2C00B478CA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		1DEFB77919E0AD2C00B478CA /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		1DEFB77A19E0AD2C00B478CA /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		1DEFB77B19E0AD2C00B478CA /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		1DEFB77C19E0AD2C00B478CA /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		1DEFB77D19E0AD2C00B478CA /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		1DEFB77E19E0AD2C00B478CA /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		1DEFB77F19E0AD2C00B478CA /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		1DEFB78019E0AD2C00B478CA /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		1DEFB78119E0AD2C00B478CA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		1DEFB78219E0AD2C00B478CA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		1DEFB78319E0AD2C00B478CA /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		1DEFB78419E0AD2C00B478CA /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		1DEFB78519E0AD2C00B478CA /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		1DEFB78619E0AD2C00B478CA /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		1DEFB78719E0AD2C00B478CA /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		1DEFB78819E0AD2C00B478CA /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		1DEFB79219E0ADA200B478CA /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		30D30700CEE5D7D98669365B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		88249390D146DA9B535B2E86 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F417135119E35248000A6202 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A737D42C86D74A2F84108AA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				1DEFB79219E0ADA200B478CA /* bridge.h */,
-				1DEFB77519E0AD2C00B478CA /* AFNetworking */,
 				1DB13F7219DE3BC800A60A64 /* Capstone 01 */,
 				1DB13F8819DE3BC800A60A64 /* Capstone 01Tests */,
 				1DB13F7119DE3BC800A60A64 /* Products */,
+				6FD5644780D2FF4D83B4129E /* Pods */,
+				60A97A158EF60EB252D4239D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,19 +105,14 @@
 		1DB13F7219DE3BC800A60A64 /* Capstone 01 */ = {
 			isa = PBXGroup;
 			children = (
+				1DBA3C8819F5EC2300587518 /* Controllers */,
+				1DBA3C8719F5E93100587518 /* Models */,
 				1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */,
-				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
-				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
-				1DB13F7919DE3BC800A60A64 /* Main.storyboard */,
+				1D2D176219F2A7140026A25D /* PlayerSegue.swift */,
 				1DB13F7C19DE3BC800A60A64 /* Images.xcassets */,
 				1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */,
+				1DB13F7919DE3BC800A60A64 /* Main.storyboard */,
 				1DB13F7319DE3BC800A60A64 /* Supporting Files */,
-				F417135119E35248000A6202 /* APIClient.swift */,
-				1DECDA0819E378B7005B486B /* APIDataManager.swift */,
-				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
-				1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */,
-				1D2D176219F2A7140026A25D /* PlayerSegue.swift */,
-				1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */,
 			);
 			path = "Capstone 01";
 			sourceTree = "<group>";
@@ -156,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */,
-				1DB13F8919DE3BC800A60A64 /* Supporting Files */,
 				1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */,
+				1DB13F8919DE3BC800A60A64 /* Supporting Files */,
 			);
 			path = "Capstone 01Tests";
 			sourceTree = "<group>";
@@ -170,30 +143,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1DEFB77519E0AD2C00B478CA /* AFNetworking */ = {
+		1DBA3C8719F5E93100587518 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1DEFB77619E0AD2C00B478CA /* AFHTTPRequestOperation.h */,
-				1DEFB77719E0AD2C00B478CA /* AFHTTPRequestOperation.m */,
-				1DEFB77819E0AD2C00B478CA /* AFHTTPRequestOperationManager.h */,
-				1DEFB77919E0AD2C00B478CA /* AFHTTPRequestOperationManager.m */,
-				1DEFB77A19E0AD2C00B478CA /* AFHTTPSessionManager.h */,
-				1DEFB77B19E0AD2C00B478CA /* AFHTTPSessionManager.m */,
-				1DEFB77C19E0AD2C00B478CA /* AFNetworking.h */,
-				1DEFB77D19E0AD2C00B478CA /* AFNetworkReachabilityManager.h */,
-				1DEFB77E19E0AD2C00B478CA /* AFNetworkReachabilityManager.m */,
-				1DEFB77F19E0AD2C00B478CA /* AFSecurityPolicy.h */,
-				1DEFB78019E0AD2C00B478CA /* AFSecurityPolicy.m */,
-				1DEFB78119E0AD2C00B478CA /* AFURLConnectionOperation.h */,
-				1DEFB78219E0AD2C00B478CA /* AFURLConnectionOperation.m */,
-				1DEFB78319E0AD2C00B478CA /* AFURLRequestSerialization.h */,
-				1DEFB78419E0AD2C00B478CA /* AFURLRequestSerialization.m */,
-				1DEFB78519E0AD2C00B478CA /* AFURLResponseSerialization.h */,
-				1DEFB78619E0AD2C00B478CA /* AFURLResponseSerialization.m */,
-				1DEFB78719E0AD2C00B478CA /* AFURLSessionManager.h */,
-				1DEFB78819E0AD2C00B478CA /* AFURLSessionManager.m */,
+				F417135119E35248000A6202 /* APIClient.swift */,
+				1DECDA0819E378B7005B486B /* APIDataManager.swift */,
+				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
 			);
-			path = AFNetworking;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1DBA3C8819F5EC2300587518 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
+				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
+				1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */,
+				1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		60A97A158EF60EB252D4239D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30D30700CEE5D7D98669365B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FD5644780D2FF4D83B4129E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */,
+				88249390D146DA9B535B2E86 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DB13F8F19DE3BC800A60A64 /* Build configuration list for PBXNativeTarget "Capstone 01" */;
 			buildPhases = (
+				1CABFB3AD61C0EEF701F9B4F /* Check Pods Manifest.lock */,
 				1DB13F6C19DE3BC800A60A64 /* Sources */,
 				1DB13F6D19DE3BC800A60A64 /* Frameworks */,
 				1DB13F6E19DE3BC800A60A64 /* Resources */,
+				FD774EF16E27615580C2AC1D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,25 +283,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CABFB3AD61C0EEF701F9B4F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD774EF16E27615580C2AC1D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1DB13F6C19DE3BC800A60A64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DEFB78919E0AD2C00B478CA /* AFHTTPRequestOperation.m in Sources */,
 				1DF249B319EF5D0A004E4F4C /* PlayerViewController.swift in Sources */,
 				1D660A7119F5C38A004619F7 /* BaseTabBarController.swift in Sources */,
 				1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */,
-				1DEFB78A19E0AD2C00B478CA /* AFHTTPRequestOperationManager.m in Sources */,
-				1DEFB78C19E0AD2C00B478CA /* AFNetworkReachabilityManager.m in Sources */,
-				1DEFB79019E0AD2C00B478CA /* AFURLResponseSerialization.m in Sources */,
-				1DEFB78E19E0AD2C00B478CA /* AFURLConnectionOperation.m in Sources */,
-				1DEFB78D19E0AD2C00B478CA /* AFSecurityPolicy.m in Sources */,
-				1DEFB78B19E0AD2C00B478CA /* AFHTTPSessionManager.m in Sources */,
 				1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */,
-				1DEFB78F19E0AD2C00B478CA /* AFURLRequestSerialization.m in Sources */,
 				F417135219E35248000A6202 /* APIClient.swift in Sources */,
-				1DEFB79119E0AD2C00B478CA /* AFURLSessionManager.m in Sources */,
 				1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */,
 				1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */,
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
@@ -443,6 +454,7 @@
 		};
 		1DB13F9019DE3BC800A60A64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
@@ -455,6 +467,7 @@
 		};
 		1DB13F9119DE3BC800A60A64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88249390D146DA9B535B2E86 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;

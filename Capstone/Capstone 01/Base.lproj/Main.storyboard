@@ -132,18 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3on-9c-jDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096" y="400"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="HiE-c2-E7v">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Yf9-6i-rA1" sceneMemberID="viewController">
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
-                </avPlayerViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-yU-RLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3090" y="-282"/>
+            <point key="canvasLocation" x="3102" y="82"/>
         </scene>
         <!--Browse-->
         <scene sceneID="r8a-Gc-X1Q">
@@ -348,6 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHD-e8-jas" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2355" y="641"/>
         </scene>
     </scenes>
 </document>
