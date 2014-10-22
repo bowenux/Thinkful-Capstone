@@ -480,6 +480,7 @@
 		};
 		1DB13F9319DE3BC800A60A64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -500,6 +501,7 @@
 		};
 		1DB13F9419DE3BC800A60A64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88249390D146DA9B535B2E86 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
