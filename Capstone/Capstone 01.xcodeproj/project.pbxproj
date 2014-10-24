@@ -16,6 +16,8 @@
 		1DB13F7D19DE3BC800A60A64 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7C19DE3BC800A60A64 /* Images.xcassets */; };
 		1DB13F8019DE3BC800A60A64 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */; };
 		1DB13F8C19DE3BC800A60A64 /* Capstone_01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */; };
+		1DE36B5419F9C7AC00C3EE49 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5319F9C7AC00C3EE49 /* TransitionManager.swift */; };
+		1DE36B5619F9D27E00C3EE49 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */; };
 		1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
 		1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */; };
 		1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */; };
@@ -50,6 +52,8 @@
 		1DB13F8519DE3BC800A60A64 /* Capstone 01Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone 01Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB13F8A19DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_01Tests.swift; sourceTree = "<group>"; };
+		1DE36B5319F9C7AC00C3EE49 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1DECDA0819E378B7005B486B /* APIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataManager.swift; sourceTree = "<group>"; };
 		1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioObject.swift; sourceTree = "<group>"; };
 		1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				F417135119E35248000A6202 /* APIClient.swift */,
 				1DECDA0819E378B7005B486B /* APIDataManager.swift */,
 				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
+				1DE36B5319F9C7AC00C3EE49 /* TransitionManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
 				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
 				1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */,
+				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
 				1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */,
 			);
 			name = Controllers;
@@ -325,8 +331,10 @@
 				1D660A7119F5C38A004619F7 /* BaseTabBarController.swift in Sources */,
 				1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */,
 				1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */,
+				1DE36B5619F9D27E00C3EE49 /* MenuViewController.swift in Sources */,
 				F417135219E35248000A6202 /* APIClient.swift in Sources */,
 				1DEFB77419E0A30B00B478CA /* AudioTableViewController.swift in Sources */,
+				1DE36B5419F9C7AC00C3EE49 /* TransitionManager.swift in Sources */,
 				1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */,
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,

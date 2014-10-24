@@ -8,11 +8,17 @@
 
 import UIKit
 
-class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UISearchBarDelegate, UISearchDisplayDelegate, GetAudioCallBack
+class AudioTableViewController:
+    UITableViewController,
+    UIActionSheetDelegate,
+    UISearchBarDelegate,
+    UISearchDisplayDelegate,
+    GetAudioCallBack
 {
     let dataManager = APIDataManager()
     var allAudio:[JordanAudioObject] = []
     var filteredAudio:[JordanAudioObject] = []
+    let transitionManager = TransitionManager()
     
     @IBAction func filterAudio(sender: AnyObject) {
         println("Sort was tapped")
@@ -28,6 +34,11 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UIS
         sheet.cancelButtonIndex = 0;
         sheet.showInView(self.view);
         
+    }
+   
+    @IBAction func returnToViewController (sender: UIStoryboardSegue){
+        // bug? exit segue doesn't dismiss so we do it manually...
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func actionSheet(sheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
@@ -92,6 +103,10 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UIS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // now we'll have a handy reference to this view controller
+        // from within our transition manager object
+        self.transitionManager.sourceViewController = self
         
         println("calling api...")
         
@@ -226,6 +241,16 @@ class AudioTableViewController: UITableViewController,UIActionSheetDelegate, UIS
             theDestination.audioDetailDateRecorded = theSelectedRow.dateRecorded
             theDestination.audioDetailLocationRecorded = theSelectedRow.locationRecorded
             
+        }
+        else if segue.identifier == "ToGlobalMenu"
+        {   
+            let menu = segue.destinationViewController as MenuViewController
+            menu.transitioningDelegate = self.transitionManager
+            self.transitionManager.menuViewController = menu
+        }
+        else
+        {
+            // Unknown segue identifier
         }
     }
 

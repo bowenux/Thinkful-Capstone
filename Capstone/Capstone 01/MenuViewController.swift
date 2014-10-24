@@ -1,22 +1,21 @@
 //
-//  BaseTabBarController.swift
+//  MenuViewController.swift
 //  Capstone 01
 //
-//  Created by Rick Bowen on 10/20/14.
+//  Created by Rick Bowen on 10/23/14.
 //  Copyright (c) 2014 Rick Bowen. All rights reserved.
 //
 
 import UIKit
 
-class BaseTabBarController:    
-    UITabBarController
-{
+class MenuViewController: UIViewController {
 
+    @IBOutlet weak var menuTitle: UILabel!
+    @IBOutlet weak var menuSubTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        println("BaseTabBarController loaded")
-        
+
         // Do any additional setup after loading the view.
     }
 
