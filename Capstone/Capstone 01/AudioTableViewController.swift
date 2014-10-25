@@ -168,7 +168,7 @@ class AudioTableViewController:
         
         
         // Configure the cell
-        cell.textLabel!.text = audio.name
+        cell.textLabel.text = audio.name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator // what does this do?
         
         /*

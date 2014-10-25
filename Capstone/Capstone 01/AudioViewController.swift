@@ -53,7 +53,7 @@ class AudioViewController: UIViewController {
     
     func playURL()
     {
-        var url = NSURL.URLWithString(self.audioDetailUrlSrc!)
+        var url = NSURL(fileURLWithPath: self.audioDetailUrlSrc!)
         self.player = AVPlayer.playerWithURL(url) as? AVPlayer
         println("player: with URL \(self.audioDetailUrlSrc)")
         self.player?.play()
@@ -72,8 +72,8 @@ class AudioViewController: UIViewController {
         
         //set image
         let albumArtImageURL = NSURL(string: self.audioDetailAlbumArt!)
-        let imageData = NSData(contentsOfURL: albumArtImageURL)
-        self.albumArtImage.image = UIImage(data: imageData)
+        let imageData = NSData(contentsOfURL: albumArtImageURL!)
+        self.albumArtImage.image = UIImage(data: imageData!)
     }
     
     override func didReceiveMemoryWarning() {
