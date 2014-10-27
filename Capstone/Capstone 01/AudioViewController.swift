@@ -30,25 +30,30 @@ class AudioViewController: UIViewController {
     
     @IBAction func playBtnTouch(sender: AnyObject)
     {
-        //Animate Container
-        
-        // lets set the duration to 1.0 seconds
-        // and in the animations block change the background color
-        // to red and the x-position  of the frame
-        UIView.animateWithDuration(0.25, animations: {
-            
-            // for the x-position I entered 320-50 (width of screen - width of the square)
-            // if you want, you could just enter 270
-            // but I prefer to enter the math as a reminder of what's happenings
-            self.container.frame = CGRect(x: 0, y: 667-50, width: 600, height: 50)
-        })
-        
-        
         
         // Play audio
         //UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var e = delegate.playerViewController
+        
+
+        
+        e?.show()
+        
         //self.playURL()
         
+        // 
+        
+    }
+    
+    // part of view life cycle
+    override func viewWillDisappear(animated: Bool) {
+        
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var e = delegate.playerViewController
+        //e?.hide()
+        
+        super.viewWillDisappear(animated)
     }
     
     func playURL()
@@ -116,5 +121,13 @@ class AudioViewController: UIViewController {
     }
     
     
+}
+
+private extension UIStoryboard {
+    class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+    class func playerViewController() -> PlayerViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("PlayerViewController") as? PlayerViewController
+    }
 }
 

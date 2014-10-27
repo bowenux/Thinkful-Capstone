@@ -2,15 +2,28 @@
 //  PlayerViewController.swift
 //  Capstone 01
 //
-//  Created by Rick Bowen on 10/15/14.
+//  Created by Rick Bowen on 10/26/14.
 //  Copyright (c) 2014 Rick Bowen. All rights reserved.
 //
 
 import UIKit
-import AVKit
 
-class PlayerViewController: AVPlayerViewController {
-
+class PlayerViewController: UIViewController {
+    
+    func hide()
+    {
+        println("hidden")
+        let verticalOffset = self.view.frame.size.height
+        self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
+    }
+    func show()
+    {
+        println("shown")
+        let verticalOffset = self.view.frame.size.height - 50
+        self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +40,7 @@ class PlayerViewController: AVPlayerViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A737D42C86D74A2F84108AA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D30700CEE5D7D98669365B /* libPods.a */; };
 		1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D176219F2A7140026A25D /* PlayerSegue.swift */; };
+		1D50EDB319FDC9960012BF66 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */; };
+		1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */; };
 		1D660A7119F5C38A004619F7 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */; };
 		1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */; };
 		1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */; };
@@ -24,7 +26,6 @@
 		1DF249AB19EC8735004E4F4C /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */; };
 		1DF249AC19EC875D004E4F4C /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
 		1DF249AD19EC878B004E4F4C /* JordanAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */; };
-		1DF249B319EF5D0A004E4F4C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */; };
 		F417135219E35248000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
 		F417135319E35363000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		1D2D176219F2A7140026A25D /* PlayerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSegue.swift; sourceTree = "<group>"; };
+		1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		1DB13F7019DE3BC800A60A64 /* Capstone 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone 01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB13F7419DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +62,6 @@
 		1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
 		1DEFB79219E0ADA200B478CA /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
-		1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		30D30700CEE5D7D98669365B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		88249390D146DA9B535B2E86 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,7 +167,8 @@
 				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
 				1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */,
 				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
-				1DF249B219EF5D0A004E4F4C /* PlayerViewController.swift */,
+				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
+				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -327,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DF249B319EF5D0A004E4F4C /* PlayerViewController.swift in Sources */,
 				1D660A7119F5C38A004619F7 /* BaseTabBarController.swift in Sources */,
 				1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */,
 				1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */,
@@ -337,6 +339,8 @@
 				1DE36B5419F9C7AC00C3EE49 /* TransitionManager.swift in Sources */,
 				1D2D176319F2A7140026A25D /* PlayerSegue.swift in Sources */,
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
+				1D50EDB319FDC9960012BF66 /* PlayerViewController.swift in Sources */,
+				1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
