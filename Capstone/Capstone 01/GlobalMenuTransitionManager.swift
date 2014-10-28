@@ -1,5 +1,5 @@
 //
-//  TransitionManager.swift
+//  GlobalMenuTransitionManager.swift
 //  Capstone 01
 //
 //  Created by Rick Bowen on 10/23/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransitionManager:
+class GlobalMenuTransitionManager:
     UIPercentDrivenInteractiveTransition
     ,UIViewControllerAnimatedTransitioning
     ,UIViewControllerTransitioningDelegate
