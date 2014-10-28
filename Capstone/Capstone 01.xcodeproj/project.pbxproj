@@ -166,9 +166,9 @@
 				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
 				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
 				1D660A7019F5C38A004619F7 /* BaseTabBarController.swift */,
+				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
 				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
 				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
-				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

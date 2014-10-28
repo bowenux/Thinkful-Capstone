@@ -8,6 +8,8 @@
 
 import UIKit
 
+//  This class will serve as a "wrapper" ViewController, 
+//  allowing us to show multiple views at the same time (e.g., the playerViewController)
 class ContainerViewController: UIViewController {
     
     var audioTableNavigationController: UINavigationController!
@@ -15,37 +17,9 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        audioTableViewController = UIStoryboard.audioTableViewController()
-        //audioTableViewController.delegate = self
         
-        // wrap the centerViewController in a navigation controller, so we can push views to it
-        // and display bar button items in the navigation bar
-        audioTableNavigationController = UINavigationController(rootViewController: audioTableViewController)
-        view.addSubview(audioTableNavigationController.view)
-        addChildViewController(audioTableNavigationController)
-        
-        audioTableNavigationController.didMoveToParentViewController(self)
-        
-        
-        
-        // now try to add the player in a hidden state
-        
-        var playerViewController: PlayerViewController
-        
-        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        playerViewController = UIStoryboard.playerViewController()!
-        
-        delegate.playerViewController = playerViewController
-        
-        var playerView = playerViewController.view
-        let verticalOffset = playerView.frame.size.height// - 50
-        playerView.frame = CGRectMake( 0, verticalOffset, playerView.frame.size.width, playerView.frame.size.height );
-     
-        view.insertSubview(playerViewController.view, atIndex: 2)
-        
-        addChildViewController(playerViewController)
-        //playerViewController.didMoveToParentViewController(self)
+        showAudioInTable() // load table that will make API call
+        initPlayerViewController() // create a player in a hidden state
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,19 +27,41 @@ class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showAudioInTable()
+    {
+        // grab the AudioTableViewController
+        self.audioTableViewController = UIStoryboard.audioTableViewController()
+        
+        // wrap the audioTableViewController in a navigation controller,
+        // so we can push views to it and display bar button items in the navigation bar
+        self.audioTableNavigationController = UINavigationController(rootViewController: audioTableViewController)
+        
+        // add audioTableViewController to the view
+        view.addSubview(self.audioTableNavigationController.view)
+        addChildViewController(self.audioTableNavigationController)
+        
+        // i'm not exactly sure what this does...
+        self.audioTableNavigationController.didMoveToParentViewController(self)
     }
-    */
-
+    
+    func initPlayerViewController()
+    {
+        var playerViewController: PlayerViewController
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        playerViewController = UIStoryboard.playerViewController()! // get PlayerViewController from storyboard
+        delegate.playerViewController = playerViewController // update the playerViewController in the AppDelegate
+        
+        playerViewController.create() // put player in hidden container
+        view.insertSubview(playerViewController.view, atIndex: 2) // add player to ContainerViewController (still hidden)
+        
+        // I dont know what these do... seems to work if commented out
+        addChildViewController(playerViewController)
+        playerViewController.didMoveToParentViewController(self)
+    }
 }
 
+// Helper functions for grabbing ViewControllers from the storyboard(s)
 private extension UIStoryboard {
     class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
     

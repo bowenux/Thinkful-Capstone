@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        // Make ContainerViewController the "Initial View Controller"
         let containerViewController = ContainerViewController()
-        
         window!.rootViewController = containerViewController
         window!.makeKeyAndVisible()
 

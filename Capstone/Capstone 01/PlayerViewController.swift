@@ -10,6 +10,11 @@ import UIKit
 
 class PlayerViewController: UIViewController {
     
+    func create()
+    {
+        view.frame = CGRectMake( 0, view.frame.size.height, view.frame.size.width, view.frame.size.height );
+    }
+    
     func hide()
     {
         println("hidden")
