@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import AVFoundation
 
-class PlayerViewController: UIViewController {
+class PlayerViewController:
+    UIViewController
+{
+    var player:AVPlayer?
+    var audioPlayer = JordanAudioPlayer()
     
     func create()
     {
         view.frame = CGRectMake( 0, view.frame.size.height, view.frame.size.width, view.frame.size.height );
+    }
+    
+    func playWithUrl(url:String) -> ()
+    {
+        //println("playWithURL")
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        //self.audioPlayer.open(url)
+        
+        
+        var url = NSURL(fileURLWithPath: url)
+        self.player = AVPlayer.playerWithURL(url) as? AVPlayer
+        self.player?.play()
+        println("playing?")
     }
     
     func hide()

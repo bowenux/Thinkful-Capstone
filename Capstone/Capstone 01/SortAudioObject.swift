@@ -26,7 +26,7 @@ class SortAudioObject
         sortingOptions.append( sortObject(name:"Title (z-a)", rule:"$0.name > $1.name") )
     }
     
-    func sort(audio:[JordanAudioObject], index:String) -> [JordanAudioObject]
+    func sort(var audio:[JordanAudioObject], index:String) -> [JordanAudioObject]
     {
         // THIS DOESN"T WORK...
         //var rule = sortingOptions[index].rule
@@ -35,8 +35,8 @@ class SortAudioObject
         switch index
         {
             case "Most Recent": audio.sort{ $0.dateRecorded < $1.dateRecorded }
-            case "Title (A-Z)": audio.sort{ $0.name < $1.name }
-            case "Title (Z-A)": audio.sort{ $0.name > $1.name }
+            case "Title (a-z)": audio.sort{ $0.name < $1.name }
+            case "Title (z-a)": audio.sort{ $0.name > $1.name }
             default:println("Index not found...")
         }
         

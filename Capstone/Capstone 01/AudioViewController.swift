@@ -11,6 +11,8 @@ import AVFoundation
 
 class AudioViewController: UIViewController {
     
+    
+    
     var player:AVPlayer?
     var audioDetailName:String?
     var audioDetailUrlSrc:String?
@@ -31,18 +33,17 @@ class AudioViewController: UIViewController {
     @IBAction func playBtnTouch(sender: AnyObject)
     {
         
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var playerViewController = appDelegate.playerViewController // get PlayerViewController
+        
+        //playerViewController?.playWithUrl(self.audioDetailUrlSrc!)
+        playerViewController?.show()
+        
         // Play audio
-        //UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        var e = delegate.playerViewController
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.playURL()
         
-
         
-        e?.show()
-        
-        //self.playURL()
-        
-        // 
         
     }
     
@@ -122,12 +123,3 @@ class AudioViewController: UIViewController {
     
     
 }
-
-private extension UIStoryboard {
-    class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
-    
-    class func playerViewController() -> PlayerViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("PlayerViewController") as? PlayerViewController
-    }
-}
-
