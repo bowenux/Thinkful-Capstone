@@ -184,13 +184,13 @@ class GlobalMenuTransitionManager:
                 {
                     transitionContext.completeTransition(false)
                     // bug: we have to manually add our 'to view' back http://openradar.appspot.com/radar?id=5320103646199808
-                    UIApplication.sharedApplication().keyWindow.addSubview(screens.from.view)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
                 }
                 else
                 {
                     transitionContext.completeTransition(true)
                     // bug: we have to manually add our 'to view' back http://openradar.appspot.com/radar?id=5320103646199808
-                    UIApplication.sharedApplication().keyWindow.addSubview(screens.to.view)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
                 }
         })
     }
