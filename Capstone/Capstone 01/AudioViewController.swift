@@ -78,8 +78,8 @@ class AudioViewController: UIViewController {
         
         //set image
         let albumArtImageURL = NSURL(string: self.audioDetailAlbumArt!)
-        let imageData = NSData(contentsOfURL: albumArtImageURL!)
-        self.albumArtImage.image = UIImage(data: imageData!)
+        let imageData = NSData(contentsOfURL: albumArtImageURL)
+        self.albumArtImage.image = UIImage(data: imageData)
     }
     
     override func didReceiveMemoryWarning() {
