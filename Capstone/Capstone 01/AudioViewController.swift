@@ -28,7 +28,6 @@ class AudioViewController: UIViewController {
     @IBOutlet weak var locationRecordedLabel: UILabel!
     @IBOutlet weak var albumArtImage: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
-    @IBOutlet weak var container: UIView!
     
     @IBAction func playBtnTouch(sender: AnyObject)
     {
@@ -37,7 +36,7 @@ class AudioViewController: UIViewController {
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
         
         //playerViewController?.playWithUrl(self.audioDetailUrlSrc!)
-        playerViewController?.show()
+        //playerViewController?.show()
         
         // Play audio
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
@@ -63,6 +62,14 @@ class AudioViewController: UIViewController {
         self.player = AVPlayer.playerWithURL(url) as? AVPlayer
         println("player: with URL \(self.audioDetailUrlSrc)")
         self.player?.play()
+        if let d = self.player?
+        {
+            println(d.status)
+            println(d.currentItem)
+            println(d.rate) //0.0 means "stopped", 1.0 means "play
+            d.play()
+        }
+        
     }
     
     override func viewDidLoad()
