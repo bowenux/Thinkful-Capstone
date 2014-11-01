@@ -22,15 +22,8 @@ class PlayerViewController:
     
     func playWithUrl(url:String) -> ()
     {
-        //println("playWithURL")
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        //self.audioPlayer.open(url)
-        
-        
-        var url = NSURL(fileURLWithPath: url)
-        self.player = AVPlayer.playerWithURL(url) as? AVPlayer
-        self.player?.play()
-        println("playing?")
+        self.audioPlayer.open(url)
     }
     
     func hide()
@@ -39,9 +32,8 @@ class PlayerViewController:
         let verticalOffset = self.view.frame.size.height
         self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
     }
-    func show()
+    func showMiniPlayer()
     {
-        println("shown")
         let verticalOffset = self.view.frame.size.height - 50
         self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
     }

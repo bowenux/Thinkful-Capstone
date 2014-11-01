@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AudioViewController.swift
 //  Capstone 01
 //
 //  Created by Rick Bowen on 10/2/14.
@@ -9,11 +9,12 @@
 import UIKit
 import AVFoundation
 
-class AudioViewController: UIViewController {
-    
-    
-    
+class AudioViewController:
+    UIViewController
+{
     var player:AVPlayer?
+    var audioObject:JordanAudioObject?
+    
     var audioDetailName:String?
     var audioDetailUrlSrc:String?
     var audioDetailSpeaker:String?
@@ -35,14 +36,8 @@ class AudioViewController: UIViewController {
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
         
-        //playerViewController?.playWithUrl(self.audioDetailUrlSrc!)
-        //playerViewController?.show()
-        
-        // Play audio
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        self.playURL()
-        
-        
+       // playerViewController?.playWithUrl(self.audioObject?.urlSrc!)
+        playerViewController?.showMiniPlayer()
         
     }
     
@@ -56,37 +51,22 @@ class AudioViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    func playURL()
-    {
-        var url = NSURL(fileURLWithPath: self.audioDetailUrlSrc!)
-        self.player = AVPlayer.playerWithURL(url) as? AVPlayer
-        println("player: with URL \(self.audioDetailUrlSrc)")
-        self.player?.play()
-        if let d = self.player?
-        {
-            println(d.status)
-            println(d.currentItem)
-            println(d.rate) //0.0 means "stopped", 1.0 means "play
-            d.play()
-        }
-        
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         //set labels
-        self.nameLabel.text = self.audioDetailName
-        self.navigationTitle.title = self.audioDetailName
-        self.speakerLabel.text = self.audioDetailSpeaker
-        self.dateRecordedLabel.text = self.audioDetailDateRecorded
-        self.locationRecordedLabel.text = self.audioDetailLocationRecorded
-        
+        self.nameLabel.text = self.audioObject?.name
+        self.navigationTitle.title = self.audioObject?.name
+        self.speakerLabel.text = self.audioObject?.speaker
+        self.dateRecordedLabel.text = self.audioObject?.dateRecorded
+        self.locationRecordedLabel.text = self.audioObject?.locationRecorded
+        /*
         //set image
-        let albumArtImageURL = NSURL(string: self.audioDetailAlbumArt!)
+        let albumArtImageURL = NSURL(string: self.audioObject?.albumArtLarge)
         let imageData = NSData(contentsOfURL: albumArtImageURL!)
         self.albumArtImage.image = UIImage(data: imageData!)
+*/
     }
     
     override func didReceiveMemoryWarning() {

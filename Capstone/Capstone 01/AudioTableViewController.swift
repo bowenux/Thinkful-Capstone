@@ -159,16 +159,8 @@ class AudioTableViewController:
         if segue.identifier == "ToAudioDetail"
         {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let theSelectedRow = self.allAudio[indexPath!.row]
-            let theDestination = (segue.destinationViewController as AudioViewController)
-            
-            theDestination.audioDetailName = theSelectedRow.name
-            theDestination.audioDetailAlbumArt = theSelectedRow.albumArtLarge
-            theDestination.audioDetailUrlSrc = theSelectedRow.urlSrc
-            theDestination.audioDetailSpeaker = theSelectedRow.speaker
-            theDestination.audioDetailDateRecorded = theSelectedRow.dateRecorded
-            theDestination.audioDetailLocationRecorded = theSelectedRow.locationRecorded
-            
+            let audioDetailViewController = (segue.destinationViewController as AudioViewController)            
+            audioDetailViewController.audioObject = self.allAudio[indexPath!.row]
         }
         else if segue.identifier == "ToGlobalMenu"
         {   

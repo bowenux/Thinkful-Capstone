@@ -18,7 +18,7 @@ class JordanAudioPlayer
     func open(file:String) -> ()
     {
         println("open with file: \(file)")
-        var url = NSURL(fileURLWithPath: file)
+        var url = NSURL(string: file)
         self.player = AVPlayer.playerWithURL(url) as? AVPlayer
         self.play()
     }
