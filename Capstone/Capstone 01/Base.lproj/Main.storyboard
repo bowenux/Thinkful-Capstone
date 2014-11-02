@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Audio View Controller-->
+        <!--Audio Detail View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="AudioViewController" id="vXZ-lx-hvc" customClass="AudioViewController" customModule="Capstone_01" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AudioViewController" id="vXZ-lx-hvc" customClass="AudioDetailViewController" customModule="Capstone_01" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oT8-jH-9LS"/>
                         <viewControllerLayoutGuide type="bottom" id="ceC-Ja-n0v"/>

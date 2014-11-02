@@ -159,7 +159,7 @@ class AudioTableViewController:
         if segue.identifier == "ToAudioDetail"
         {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let audioDetailViewController = (segue.destinationViewController as AudioViewController)            
+            let audioDetailViewController = (segue.destinationViewController as AudioDetailViewController)
             audioDetailViewController.audioObject = self.allAudio[indexPath!.row]
         }
         else if segue.identifier == "ToGlobalMenu"

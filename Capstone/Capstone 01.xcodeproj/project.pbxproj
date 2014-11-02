@@ -13,7 +13,7 @@
 		1DA3FADA1A00235D0074E869 /* SortAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */; };
 		1DA3FADC1A0056FB0074E869 /* JordanAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FADB1A0056FB0074E869 /* JordanAudioPlayer.swift */; };
 		1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */; };
-		1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */; };
+		1DB13F7819DE3BC800A60A64 /* AudioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */; };
 		1DB13F7B19DE3BC800A60A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7919DE3BC800A60A64 /* Main.storyboard */; };
 		1DB13F7D19DE3BC800A60A64 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7C19DE3BC800A60A64 /* Images.xcassets */; };
 		1DB13F8019DE3BC800A60A64 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */; };
@@ -48,7 +48,7 @@
 		1DB13F7019DE3BC800A60A64 /* Capstone 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone 01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB13F7419DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDetailViewController.swift; sourceTree = "<group>"; };
 		1DB13F7A19DE3BC800A60A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DB13F7C19DE3BC800A60A64 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DB13F7F19DE3BC800A60A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
-				1DB13F7719DE3BC800A60A64 /* AudioViewController.swift */,
+				1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */,
 				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
 				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
 				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
@@ -331,7 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA3FADA1A00235D0074E869 /* SortAudioObject.swift in Sources */,
-				1DB13F7819DE3BC800A60A64 /* AudioViewController.swift in Sources */,
+				1DB13F7819DE3BC800A60A64 /* AudioDetailViewController.swift in Sources */,
 				1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */,
 				1DE36B5619F9D27E00C3EE49 /* MenuViewController.swift in Sources */,
 				F417135219E35248000A6202 /* APIClient.swift in Sources */,
