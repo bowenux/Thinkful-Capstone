@@ -35,8 +35,8 @@ class AudioDetailViewController:
         
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
-        
-       // playerViewController?.playWithUrl(self.audioObject?.urlSrc!)
+        //println(self.audioObject?.urlSrc)
+        playerViewController?.playWithUrl(self.audioObject?.urlSrc)
         playerViewController?.showMiniPlayer()
         
     }

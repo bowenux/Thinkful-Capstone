@@ -20,10 +20,10 @@ class PlayerViewController:
         view.frame = CGRectMake( 0, view.frame.size.height, view.frame.size.width, view.frame.size.height );
     }
     
-    func playWithUrl(url:String) -> ()
+    func playWithUrl(url:String?) -> ()
     {
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        self.audioPlayer.open(url)
+        self.audioPlayer.open(url!)
     }
     
     func hide()
