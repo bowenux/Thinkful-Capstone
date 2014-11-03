@@ -15,13 +15,6 @@ class AudioDetailViewController:
     var player:AVPlayer?
     var audioObject:JordanAudioObject?
     
-    var audioDetailName:String?
-    var audioDetailUrlSrc:String?
-    var audioDetailSpeaker:String?
-    var audioDetailDateRecorded:String?
-    var audioDetailLocationRecorded:String?
-    var audioDetailAlbumArt:String?
-    
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var speakerLabel: UILabel!
@@ -32,18 +25,17 @@ class AudioDetailViewController:
     
     @IBAction func playBtnTouch(sender: AnyObject)
     {
-        
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
-        //println(self.audioObject?.urlSrc)
-        playerViewController?.playWithUrl(self.audioObject?.urlSrc)
-        playerViewController?.showMiniPlayer()
         
+        playerViewController?.jordanAudioObject = audioObject?
+        playerViewController?.playJordanAudioObject()
+        playerViewController?.showMiniPlayer()
     }
     
     // part of view life cycle
-    override func viewWillDisappear(animated: Bool) {
-        
+    override func viewWillDisappear(animated: Bool)
+    {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         var e = delegate.playerViewController
         //e?.hide()
@@ -61,12 +53,14 @@ class AudioDetailViewController:
         self.speakerLabel.text = self.audioObject?.speaker
         self.dateRecordedLabel.text = self.audioObject?.dateRecorded
         self.locationRecordedLabel.text = self.audioObject?.locationRecorded
-        /*
+        
         //set image
-        let albumArtImageURL = NSURL(string: self.audioObject?.albumArtLarge)
-        let imageData = NSData(contentsOfURL: albumArtImageURL!)
-        self.albumArtImage.image = UIImage(data: imageData!)
-*/
+        if let theAlbumArt = self.audioObject?.albumArtLarge
+        {
+            let albumArtImageURL = NSURL(string: theAlbumArt)
+            let imageData = NSData(contentsOfURL: albumArtImageURL!)
+            self.albumArtImage.image = UIImage(data: imageData!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,7 +72,7 @@ class AudioDetailViewController:
     
     
     // ======== respond to remote controls
-    
+   /*
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
@@ -107,6 +101,6 @@ class AudioDetailViewController:
             //player not initiated
         }
     }
-    
+    */
     
 }

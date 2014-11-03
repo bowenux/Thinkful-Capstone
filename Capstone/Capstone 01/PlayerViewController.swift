@@ -9,20 +9,38 @@
 import UIKit
 import AVFoundation
 
+protocol MiniPlayerDelegate
+{
+    func setupMiniPlayer(senderClass: AnyObject, audio: JordanAudioObject)
+}
+
 class PlayerViewController:
     UIViewController
 {
     var player:AVPlayer?
     var audioPlayer = JordanAudioPlayer()
+    var jordanAudioObject:JordanAudioObject?
+    var delegate: MiniPlayerDelegate?
     
     func create()
     {
         view.frame = CGRectMake( 0, view.frame.size.height, view.frame.size.width, view.frame.size.height );
     }
     
+    func playJordanAudioObject() -> ()
+    {
+        if let urlSrc = self.jordanAudioObject?.urlSrc
+        {
+            self.audioPlayer.open(urlSrc)
+        }
+        else
+        {
+            println("unable to play: I don't have a urlSrc in the JordanAudioObject, or a JordanAudioObject at all! Set the instance property first!")
+        }
+    }
+    
     func playWithUrl(url:String?) -> ()
     {
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.audioPlayer.open(url!)
     }
     
@@ -34,6 +52,18 @@ class PlayerViewController:
     }
     func showMiniPlayer()
     {
+        // prepare miniplayer
+        if let setDelegate = self.delegate?
+        {
+            setDelegate.setupMiniPlayer(self, audio: jordanAudioObject!)
+        }
+        else
+        {
+            println("No delegate set for showMiniPlayer()")
+        }
+        
+        
+        // slide up this view controller
         let verticalOffset = self.view.frame.size.height - 50
         self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
     }

@@ -20,6 +20,8 @@ class JordanAudioPlayer
         println("open with file: \(file)")
         var url = NSURL(string: file)
         self.player = AVPlayer.playerWithURL(url) as? AVPlayer
+        
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.play()
     }
     func play()

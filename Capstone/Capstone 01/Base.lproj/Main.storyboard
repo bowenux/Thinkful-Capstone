@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="-134" y="176"/>
         </scene>
-        <!--View Controller-->
+        <!--Mini Player View Controller-->
         <scene sceneID="I86-9k-7J3">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IfM-KK-bjq" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IfM-KK-bjq" customClass="MiniPlayerViewController" customModule="Capstone_01" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aTf-nl-NVq"/>
                         <viewControllerLayoutGuide type="bottom" id="nwj-UX-erB"/>
@@ -274,9 +274,20 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sK3-xS-ZTo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEA-ao-Qjf">
+                                <rect key="frame" x="26" y="18" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93737107515335083" green="0.96079492568969727" blue="0.99982881546020508" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="nameLabel" destination="FEA-ao-Qjf" id="xn6-QV-jhX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEA-Jj-VqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
