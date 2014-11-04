@@ -11,27 +11,34 @@ import UIKit
 class MiniPlayerViewController:
     UIViewController
 {
+    var audioManager = AppDelegate.audioManager()
+    
     @IBOutlet weak var nameLabel: UILabel!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
+        // listener for playerNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "prepareMiniPlayer",
+            name: AppDelegate.notificationKey(),
+            object: nil
+        )
     }
    
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
     }
-
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func prepareMiniPlayer() {
+        if let currentJordanAudioObject = self.audioManager.currentJordanAudioObject
+        {
+            nameLabel.text = currentJordanAudioObject.name
+        }
     }
-    */
 
 }

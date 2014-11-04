@@ -13,7 +13,7 @@ class AudioDetailViewController:
     UIViewController
 {
     var jordanAudioObject:JordanAudioObject?
-    var audioManager = AppDelegate.audioManager
+    var jordanAudioManager = AppDelegate.audioManager()
     
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,8 +28,8 @@ class AudioDetailViewController:
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
         
-        self.audioManager().prepare(jordanAudioObject!)
-        self.audioManager().play()
+        self.jordanAudioManager.prepare(jordanAudioObject!)
+        self.jordanAudioManager.play()
         playerViewController?.showMiniPlayer()
     }
     

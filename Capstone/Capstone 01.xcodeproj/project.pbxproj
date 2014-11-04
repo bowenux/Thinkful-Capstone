@@ -12,7 +12,6 @@
 		1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */; };
 		1D5DF7271A07101400292ACE /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */; };
 		1DA3FADA1A00235D0074E869 /* SortAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */; };
-		1DA3FADC1A0056FB0074E869 /* JordanAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3FADB1A0056FB0074E869 /* JordanAudioPlayer.swift */; };
 		1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */; };
 		1DB13F7819DE3BC800A60A64 /* AudioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */; };
 		1DB13F7B19DE3BC800A60A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7919DE3BC800A60A64 /* Main.storyboard */; };
@@ -47,7 +46,6 @@
 		1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
 		1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortAudioObject.swift; sourceTree = "<group>"; };
-		1DA3FADB1A0056FB0074E869 /* JordanAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioPlayer.swift; sourceTree = "<group>"; };
 		1DB13F7019DE3BC800A60A64 /* Capstone 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone 01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB13F7419DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */,
 				1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */,
 				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
-				1DA3FADB1A0056FB0074E869 /* JordanAudioPlayer.swift */,
 				1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */,
 			);
 			name = Models;
@@ -349,7 +346,6 @@
 				1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
 				1D5DF7271A07101400292ACE /* MiniPlayerViewController.swift in Sources */,
-				1DA3FADC1A0056FB0074E869 /* JordanAudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

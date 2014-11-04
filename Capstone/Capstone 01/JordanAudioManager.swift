@@ -12,19 +12,22 @@ import AVFoundation
 class JordanAudioManager
 {
     var player: AVPlayer?
-    var currentAudioObject:JordanAudioObject?
-    var isPlaying:Bool = false
+    var currentJordanAudioObject: JordanAudioObject?
+    var isPlaying: Bool = false
     
     init(){}
     
     func prepare(audioObject: JordanAudioObject) -> ()
     {
-        self.currentAudioObject = audioObject
+        self.currentJordanAudioObject = audioObject
+        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.notificationKey(), object: self)
     }
-    
+    func updateNotificationSentLabel() {
+       println("Notification sent!")
+    }
     func play() -> ()
     {
-        if let hasAudioObject = currentAudioObject
+        if let hasAudioObject = currentJordanAudioObject
         {
             var url = NSURL(string: hasAudioObject.urlSrc)
             self.player = AVPlayer.playerWithURL(url) as? AVPlayer

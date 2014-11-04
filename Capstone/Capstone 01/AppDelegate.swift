@@ -15,9 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerViewController: PlayerViewController?
     var jordanAudioManager = JordanAudioManager()
     
-    class func audioManager() -> JordanAudioManager {
+    class func audioManager() -> JordanAudioManager
+    {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         return delegate.jordanAudioManager
+    }
+    
+    class func notificationKey() -> String
+    {
+        let key = "com.bowenux.playerLoadedNotificationKey"
+        return key
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
