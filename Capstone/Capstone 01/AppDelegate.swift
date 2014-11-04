@@ -20,13 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         return delegate.jordanAudioManager
     }
-    
-    class func notificationKey() -> String
-    {
-        let key = "com.bowenux.playerLoadedNotificationKey"
-        return key
-    }
-    
+        
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         

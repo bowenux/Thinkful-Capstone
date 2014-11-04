@@ -19,6 +19,7 @@
 		1DB13F8019DE3BC800A60A64 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */; };
 		1DB13F8C19DE3BC800A60A64 /* Capstone_01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */; };
 		1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */; };
+		1DDAA9711A090D6800BC897E /* NSNotificationCenterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */; };
 		1DE36B5419F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */; };
 		1DE36B5619F9D27E00C3EE49 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */; };
 		1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
@@ -57,6 +58,7 @@
 		1DB13F8A19DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_01Tests.swift; sourceTree = "<group>"; };
 		1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioManager.swift; sourceTree = "<group>"; };
+		1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterKeys.swift; sourceTree = "<group>"; };
 		1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMenuTransitionManager.swift; sourceTree = "<group>"; };
 		1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1DECDA0819E378B7005B486B /* APIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataManager.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */,
 				1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */,
 				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
+				1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */,
 				1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */,
 			);
 			name = Models;
@@ -345,6 +348,7 @@
 				1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */,
 				1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
+				1DDAA9711A090D6800BC897E /* NSNotificationCenterKeys.swift in Sources */,
 				1D5DF7271A07101400292ACE /* MiniPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

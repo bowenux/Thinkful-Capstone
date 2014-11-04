@@ -20,7 +20,8 @@ class JordanAudioManager
     func prepare(audioObject: JordanAudioObject) -> ()
     {
         self.currentJordanAudioObject = audioObject
-        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.notificationKey(), object: self)
+        //send notification
+        NSNotificationCenter.defaultCenter().postNotificationName(playerLoadedNotification.key, object: self)
     }
     func updateNotificationSentLabel() {
        println("Notification sent!")

@@ -23,7 +23,7 @@ class MiniPlayerViewController:
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector: "prepareMiniPlayer",
-            name: AppDelegate.notificationKey(),
+            name: playerLoadedNotification.key,
             object: nil
         )
     }
