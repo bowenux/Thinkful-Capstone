@@ -10,26 +10,18 @@ import UIKit
 
 class MiniPlayerViewController:
     UIViewController
-    ,MiniPlayerDelegate
 {
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     }
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func setupMiniPlayer(senderClass: AnyObject, audio: JordanAudioObject)
-    {
-        println("at setupMiniPlayer()")
-        self.nameLabel.text = audio.name
-    }
+
     
 
     /*

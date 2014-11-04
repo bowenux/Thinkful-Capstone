@@ -12,8 +12,8 @@ import AVFoundation
 class AudioDetailViewController:
     UIViewController
 {
-    var player:AVPlayer?
-    var audioObject:JordanAudioObject?
+    var jordanAudioObject:JordanAudioObject?
+    var audioManager = AppDelegate.audioManager
     
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,8 +28,8 @@ class AudioDetailViewController:
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var playerViewController = appDelegate.playerViewController // get PlayerViewController
         
-        playerViewController?.jordanAudioObject = audioObject?
-        playerViewController?.playJordanAudioObject()
+        self.audioManager().prepare(jordanAudioObject!)
+        self.audioManager().play()
         playerViewController?.showMiniPlayer()
     }
     
@@ -48,14 +48,14 @@ class AudioDetailViewController:
         super.viewDidLoad()
         
         //set labels
-        self.nameLabel.text = self.audioObject?.name
-        self.navigationTitle.title = self.audioObject?.name
-        self.speakerLabel.text = self.audioObject?.speaker
-        self.dateRecordedLabel.text = self.audioObject?.dateRecorded
-        self.locationRecordedLabel.text = self.audioObject?.locationRecorded
+        self.nameLabel.text = self.jordanAudioObject?.name
+        self.navigationTitle.title = self.jordanAudioObject?.name
+        self.speakerLabel.text = self.jordanAudioObject?.speaker
+        self.dateRecordedLabel.text = self.jordanAudioObject?.dateRecorded
+        self.locationRecordedLabel.text = self.jordanAudioObject?.locationRecorded
         
         //set image
-        if let theAlbumArt = self.audioObject?.albumArtLarge
+        if let theAlbumArt = self.jordanAudioObject?.albumArtLarge
         {
             let albumArtImageURL = NSURL(string: theAlbumArt)
             let imageData = NSData(contentsOfURL: albumArtImageURL!)

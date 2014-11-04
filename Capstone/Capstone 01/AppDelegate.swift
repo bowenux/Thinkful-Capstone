@@ -13,7 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var playerViewController: PlayerViewController?
-
+    var jordanAudioManager = JordanAudioManager()
+    
+    class func audioManager() -> JordanAudioManager {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        return delegate.jordanAudioManager
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
