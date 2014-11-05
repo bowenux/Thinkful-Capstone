@@ -26,6 +26,21 @@ class JordanAudioManager
     func updateNotificationSentLabel() {
        println("Notification sent!")
     }
+    
+    func togglePlayPause() -> Bool
+    {
+        if self.isPlaying
+        {
+            self.pause()
+            return false
+        }
+        else
+        {
+            self.play()
+            return true
+        }
+    }
+    
     func play() -> ()
     {
         if let hasAudioObject = currentJordanAudioObject

@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerViewController: PlayerViewController?
     var jordanAudioManager = JordanAudioManager()
     
+    class func getPlayerViewController() -> PlayerViewController
+    {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        return delegate.playerViewController!
+    }
+    
     class func audioManager() -> JordanAudioManager
     {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate

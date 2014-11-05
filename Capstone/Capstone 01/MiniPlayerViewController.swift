@@ -14,6 +14,13 @@ class MiniPlayerViewController:
     var audioManager = AppDelegate.audioManager()
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var albumArtThumb: UIImageView!
+    
+    @IBAction func showFullPlayerBtn(sender: AnyObject)
+    {
+        var playerViewController = AppDelegate.getPlayerViewController()
+        playerViewController.show()
+    }
     
     override func viewDidLoad()
     {
@@ -37,7 +44,14 @@ class MiniPlayerViewController:
     func prepareMiniPlayer() {
         if let currentJordanAudioObject = self.audioManager.currentJordanAudioObject
         {
+            //set label
             nameLabel.text = currentJordanAudioObject.name
+            
+            //set image
+            let albumArtImageURL = NSURL(string: currentJordanAudioObject.albumArtThumb)
+            let imageData = NSData(contentsOfURL: albumArtImageURL!)
+            self.albumArtThumb.image = UIImage(data: imageData!)
+            
         }
     }
 

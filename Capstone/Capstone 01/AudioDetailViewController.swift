@@ -25,12 +25,11 @@ class AudioDetailViewController:
     
     @IBAction func playBtnTouch(sender: AnyObject)
     {
-        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        var playerViewController = appDelegate.playerViewController // get PlayerViewController
+        var playerViewController = AppDelegate.getPlayerViewController() // get PlayerViewController
         
         self.jordanAudioManager.prepare(jordanAudioObject!)
         self.jordanAudioManager.play()
-        playerViewController?.showMiniPlayer()
+        playerViewController.showMiniPlayer()
     }
     
     // part of view life cycle
