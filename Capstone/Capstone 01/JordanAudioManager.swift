@@ -14,12 +14,20 @@ class JordanAudioManager
     var player: AVPlayer?
     var currentJordanAudioObject: JordanAudioObject?
     var isPlaying: Bool = false
+    var isPlayerEmpty: Bool = true
     
     init(){}
     
     func prepare(audioObject: JordanAudioObject) -> ()
     {
+        var url = NSURL(string: audioObject.urlSrc)
+        self.player = AVPlayer.playerWithURL(url) as? AVPlayer
         self.currentJordanAudioObject = audioObject
+        self.isPlayerEmpty = false
+        
+        // allow all to recieve remote control events (i.e., control center)
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        
         //send notification
         NSNotificationCenter.defaultCenter().postNotificationName(playerLoadedNotification.key, object: self)
     }
@@ -45,9 +53,6 @@ class JordanAudioManager
     {
         if let hasAudioObject = currentJordanAudioObject
         {
-            var url = NSURL(string: hasAudioObject.urlSrc)
-            self.player = AVPlayer.playerWithURL(url) as? AVPlayer
-            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
             self.player?.play()
             self.isPlaying = true
             
