@@ -118,24 +118,24 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NOW PLAYING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4C-F5-xmP">
-                                <rect key="frame" x="75" y="243" width="118" height="21"/>
+                                <rect key="frame" x="34" y="326" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7a-fu-IWW">
-                                <rect key="frame" x="75" y="272" width="33" height="21"/>
+                                <rect key="frame" x="34" y="355" width="472" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etg-Dr-AZS">
-                                <rect key="frame" x="123" y="400" width="77" height="30"/>
+                                <rect key="frame" x="55" y="429" width="77" height="30"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPlayPausee:" destination="rcc-gZ-ctg" eventType="touchUpInside" id="vV6-rE-qCR"/>
+                                    <action selector="togglePlayPause:" destination="rcc-gZ-ctg" eventType="touchUpInside" id="Xxi-BY-Hgv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqZ-CY-RWo">
@@ -147,11 +147,35 @@
                                     <action selector="btnClosePlayer:" destination="rcc-gZ-ctg" eventType="touchUpInside" id="O4p-z7-pkw"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpD-fL-3bM">
+                                <rect key="frame" x="34" y="164" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="currentTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kb-rK-9xH">
+                                <rect key="frame" x="34" y="393" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="totalDuration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-Ja-ukF">
+                                <rect key="frame" x="296" y="393" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="g6T-48-LeH">
+                                <rect key="frame" x="138" y="403" width="150" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="audioAlbumArt" destination="RpD-fL-3bM" id="2To-8r-Xbr"/>
+                        <outlet property="audioProgressBar" destination="g6T-48-LeH" id="zMz-iE-nlc"/>
+                        <outlet property="audioTitleLabel" destination="J7a-fu-IWW" id="Acu-1f-BUX"/>
+                        <outlet property="btnPlayPause" destination="etg-Dr-AZS" id="Hcb-qD-qJL"/>
+                        <outlet property="currentTimeLabel" destination="6Kb-rK-9xH" id="N0B-Bq-t39"/>
                         <outlet property="miniPlayerContainer" destination="N7B-Zh-94m" id="VvM-FP-OIT"/>
+                        <outlet property="totalTimeLabel" destination="SEE-Ja-ukF" id="beu-wt-gQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKf-O7-m6j" userLabel="First Responder" sceneMemberID="firstResponder"/>

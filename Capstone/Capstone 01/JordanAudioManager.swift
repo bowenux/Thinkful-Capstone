@@ -15,6 +15,9 @@ class JordanAudioManager
     var currentJordanAudioObject: JordanAudioObject?
     var isPlaying: Bool = false
     var isPlayerEmpty: Bool = true
+    var audioCurrentTime: String = ""
+    var audioTotalTime: String = ""
+    var audioPercentComplete: Float = 0
     
     init(){}
     
@@ -25,14 +28,63 @@ class JordanAudioManager
         self.currentJordanAudioObject = audioObject
         self.isPlayerEmpty = false
         
+        // add observer to handle audio progression
+        self.player?.addPeriodicTimeObserverForInterval(CMTimeMakeWithSeconds(1, 1), queue: nil) {
+            (CMTime) -> Void in
+            self.updateAudioTimes()
+        }
+        
         // allow all to recieve remote control events (i.e., control center)
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
-        //send notification
+        // send notification that player has been loaded
         NSNotificationCenter.defaultCenter().postNotificationName(playerLoadedNotification.key, object: self)
     }
-    func updateNotificationSentLabel() {
-       println("Notification sent!")
+    
+    func updateAudioTimes()
+    {
+        if let playerItem = self.player?.currentItem
+        {
+            // update time labels
+            self.audioTotalTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.duration) )
+            self.audioCurrentTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.currentTime()) )
+            self.audioPercentComplete = calcPercentComplete(CMTimeGetSeconds(playerItem.currentTime()), complete: CMTimeGetSeconds(playerItem.duration))
+            
+            // send notification that player has been loaded
+            NSNotificationCenter.defaultCenter().postNotificationName(playerTimeUpdatedNotification.key, object: self)
+        }
+    }
+    
+    func convertSecondsToHMMSS(CMTimeInSeconds: Double) -> String
+    {
+        let audioLengthHrs = Int(floor(CMTimeInSeconds / 3600))
+        let audioLengthMins = Int(floor(Float((Int(CMTimeInSeconds) - (audioLengthHrs*3600)) / 60)))
+        let audioLengthSecs = Int(floor(CMTimeInSeconds % 60))
+        
+        var audioLengthHrsString = String(audioLengthHrs)
+        var audioLengthMinsString = String(audioLengthMins)
+        var audioLengthSecsString = String(audioLengthSecs)
+        if audioLengthMins <= 9 && audioLengthHrs > 0
+        {
+            audioLengthMinsString = "0" + audioLengthMinsString // prepend with 0 for "mm" format if h:mm:ss
+        }
+        if audioLengthSecs <= 9
+        {
+            audioLengthSecsString = "0" + audioLengthSecsString // prepend with 0 for "ss" format
+        }
+        
+        let timeString = (audioLengthHrs == 0) ? "\(audioLengthMinsString):\(audioLengthSecsString)" : "\(audioLengthHrsString):\(audioLengthMinsString):\(audioLengthSecsString)"
+        return timeString
+    }
+    
+    func calcPercentComplete(current: Double, complete: Double) -> Float
+    {
+        let amountCompleted = current/complete
+        let numberOfPlaces = 2.0 // number of places to round
+        let multiplier = pow(10.0, numberOfPlaces)
+        let amountCompletedRounded = round(amountCompleted * multiplier) / multiplier
+       
+        return Float(amountCompletedRounded)
     }
     
     func togglePlayPause() -> Bool

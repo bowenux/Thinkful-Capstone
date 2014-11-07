@@ -11,7 +11,7 @@ import UIKit
 class MiniPlayerViewController:
     UIViewController
 {
-    var audioManager = AppDelegate.audioManager()
+    var jordanAudioManager = AppDelegate.audioManager()
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var albumArtThumb: UIImageView!
@@ -42,7 +42,7 @@ class MiniPlayerViewController:
     
 
     func prepareMiniPlayer() {
-        if let currentJordanAudioObject = self.audioManager.currentJordanAudioObject
+        if let currentJordanAudioObject = self.jordanAudioManager.currentJordanAudioObject
         {
             //set label
             nameLabel.text = currentJordanAudioObject.name

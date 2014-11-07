@@ -9,8 +9,12 @@
 import Foundation
 
 
-let playerLoadedNotification = playerLoadedNK()
+let playerLoadedNotification = playerLoadedNotificationKey()
+let playerTimeUpdatedNotification = playerTimeUpdatedNotificationKey()
 
-class playerLoadedNK {
+class playerLoadedNotificationKey {
     var key = "com.bowenux.playerLoadedNotificationKey"
+}
+class playerTimeUpdatedNotificationKey {
+    var key = "com.bowenux.playerTimeUpdatedNotificationKey"
 }

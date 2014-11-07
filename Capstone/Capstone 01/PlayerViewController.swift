@@ -14,10 +14,24 @@ class PlayerViewController:
     var jordanAudioManager = AppDelegate.audioManager()
     
     @IBOutlet weak var miniPlayerContainer: UIView!
+    @IBOutlet weak var btnPlayPause: UIButton!
+    @IBOutlet weak var audioTitleLabel: UILabel!
+    @IBOutlet weak var audioAlbumArt: UIImageView!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var audioProgressBar: UIProgressView!
     
-    @IBAction func btnPlayPausee(sender: AnyObject)
+    @IBAction func togglePlayPause(sender: AnyObject)
     {
-        self.jordanAudioManager.togglePlayPause()
+        var playing = self.jordanAudioManager.togglePlayPause()
+        if playing
+        {
+            self.btnPlayPause.setTitle("Pause", forState: .Normal)
+        }
+        else
+        {
+            self.btnPlayPause.setTitle("Play", forState: .Normal)
+        }
     }
     
     @IBAction func btnClosePlayer(sender: AnyObject)
@@ -54,10 +68,48 @@ class PlayerViewController:
         self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
     }
     
+    func preparePlayer()
+    {
+        if let currentJordanAudioObject = self.jordanAudioManager.currentJordanAudioObject
+        {
+            //set label
+            self.audioTitleLabel.text = currentJordanAudioObject.name
+            
+            //set image
+            let albumArtImageURL = NSURL(string: currentJordanAudioObject.albumArtLarge)
+            if let imageData = NSData(contentsOfURL: albumArtImageURL!){
+                self.audioAlbumArt.image = UIImage(data: imageData)
+            }
+            
+        }
+    }
+    
+    func updatePlayerTimes()
+    {
+        self.currentTimeLabel.text = self.jordanAudioManager.audioCurrentTime
+        self.totalTimeLabel.text = self.jordanAudioManager.audioTotalTime
+        self.audioProgressBar.setProgress(self.jordanAudioManager.audioPercentComplete, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // listener for playerLoadedNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "preparePlayer",
+            name: playerLoadedNotification.key,
+            object: nil
+        )
+        
+        // listener for playerLoadedNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "updatePlayerTimes",
+            name: playerTimeUpdatedNotification.key,
+            object: nil
+        )
+        
     }
 
     override func didReceiveMemoryWarning() {
