@@ -17,6 +17,7 @@ class JordanAudioManager
     var isPlayerEmpty: Bool = true
     var audioCurrentTime: String = ""
     var audioTotalTime: String = ""
+    var audioTotalTimeInSeconds: Float64 = 0
     var audioPercentComplete: Float = 0
     
     init(){}
@@ -46,11 +47,12 @@ class JordanAudioManager
         if let playerItem = self.player?.currentItem
         {
             // update time labels
-            self.audioTotalTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.duration) )
+            self.audioTotalTimeInSeconds = CMTimeGetSeconds(playerItem.duration)
+            self.audioTotalTime = convertSecondsToHMMSS(self.audioTotalTimeInSeconds)
             self.audioCurrentTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.currentTime()) )
             self.audioPercentComplete = calcPercentComplete(CMTimeGetSeconds(playerItem.currentTime()), complete: CMTimeGetSeconds(playerItem.duration))
             
-            // send notification that player has been loaded
+            // send notification that player has been updated
             NSNotificationCenter.defaultCenter().postNotificationName(playerTimeUpdatedNotification.key, object: self)
         }
     }
@@ -77,6 +79,20 @@ class JordanAudioManager
         return timeString
     }
     
+    func convertPercentToHMMSS(value:Float) -> String
+    {
+        let timeInSeconds = convertPercentToTime(value)
+        let timeFormatted = convertSecondsToHMMSS(Double(timeInSeconds.value))
+        return timeFormatted
+    }
+    
+    func convertPercentToTime(value:Float) -> CMTime
+    {
+        let newTimeInSeconds = value * Float(self.audioTotalTimeInSeconds)
+        let newTime = CMTimeMakeWithSeconds(Float64(newTimeInSeconds), 1)
+        return newTime
+    }
+    
     func calcPercentComplete(current: Double, complete: Double) -> Float
     {
         let amountCompleted = current/complete
@@ -86,6 +102,7 @@ class JordanAudioManager
        
         return Float(amountCompletedRounded)
     }
+    
     
     func togglePlayPause() -> Bool
     {
@@ -118,5 +135,11 @@ class JordanAudioManager
         self.isPlaying = false
         
         println("paused.")
+    }
+    
+    func seekTo(value:Float) -> ()
+    {
+       let newTime = convertPercentToTime(value)
+       self.player?.seekToTime(newTime)
     }
 }
