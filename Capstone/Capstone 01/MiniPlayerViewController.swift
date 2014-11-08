@@ -15,32 +15,25 @@ class MiniPlayerViewController:
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var albumArtThumb: UIImageView!
+    @IBOutlet weak var playPauseBtn: UIButton!
     
     @IBAction func showFullPlayerBtn(sender: AnyObject)
     {
         var playerViewController = AppDelegate.getPlayerViewController()
         playerViewController.show()
     }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
-        // listener for playerNotification
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: "prepareMiniPlayer",
-            name: playerLoadedNotification.key,
-            object: nil
-        )
-    }
-   
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
+    @IBAction func playPauseToggle(sender: AnyObject) {
+        var playing = self.jordanAudioManager.togglePlayPause()
+        if playing
+        {
+            self.playPauseBtn.setTitle("Pause", forState: .Normal)
+        }
+        else
+        {
+            self.playPauseBtn.setTitle("Play", forState: .Normal)
+        }
     }
     
-
     func prepareMiniPlayer() {
         if let currentJordanAudioObject = self.jordanAudioManager.currentJordanAudioObject
         {
@@ -54,5 +47,43 @@ class MiniPlayerViewController:
             
         }
     }
-
+    
+    func updatePlayback()
+    {
+        if self.jordanAudioManager.isPlaying
+        {
+            self.playPauseBtn.setTitle("Pause", forState: .Normal)
+        }
+        else
+        {
+            self.playPauseBtn.setTitle("Play", forState: .Normal)
+        }
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        // listener for playerNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "prepareMiniPlayer",
+            name: playerLoadedNotification.key,
+            object: nil
+        )
+        
+        // listener for playerPlaybackUpdatedNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "updatePlayback",
+            name: playerPlaybackUpdatedNotification.key,
+            object: nil
+        )
+    }
+   
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
 }

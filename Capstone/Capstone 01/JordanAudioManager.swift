@@ -125,6 +125,9 @@ class JordanAudioManager
             self.player?.play()
             self.isPlaying = true
             
+            // send notification that player has been played/paused
+            NSNotificationCenter.defaultCenter().postNotificationName(playerPlaybackUpdatedNotification.key, object: self)
+            
             println("playing...")
         }
     }
@@ -133,6 +136,9 @@ class JordanAudioManager
     {
         self.player?.pause()
         self.isPlaying = false
+        
+        // send notification that player has been played/paused
+        NSNotificationCenter.defaultCenter().postNotificationName(playerPlaybackUpdatedNotification.key, object: self)
         
         println("paused.")
     }

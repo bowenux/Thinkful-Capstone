@@ -343,6 +343,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEA-ao-Qjf">
+                                <rect key="frame" x="82" y="27" width="538" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-lT-l5a">
                                 <rect key="frame" x="16" y="6" width="58" height="56"/>
                                 <constraints>
@@ -355,26 +361,29 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uef-Og-iCZ">
-                                <rect key="frame" x="135" y="0.0" width="419" height="70"/>
-                                <state key="normal" title="show">
+                                <rect key="frame" x="0.0" y="0.0" width="313" height="70"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="showFullPlayerBtn:" destination="IfM-KK-bjq" eventType="touchUpInside" id="ce4-pR-pEA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEA-ao-Qjf">
-                                <rect key="frame" x="82" y="27" width="538" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOW PLAYING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y95-k0-i5M">
                                 <rect key="frame" x="82" y="8" width="85" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qu-cc-YEU">
+                                <rect key="frame" x="321" y="8" width="77" height="30"/>
+                                <state key="normal" title="Play/Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPauseToggle:" destination="IfM-KK-bjq" eventType="touchUpInside" id="NXS-ZI-dvX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93737107515335083" green="0.96079492568969727" blue="0.99982881546020508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -385,10 +394,10 @@
                             <constraint firstItem="nwj-UX-erB" firstAttribute="top" secondItem="Y95-k0-i5M" secondAttribute="bottom" constant="30" id="HBZ-MT-LSp"/>
                             <constraint firstAttribute="centerX" secondItem="uef-Og-iCZ" secondAttribute="centerX" id="KB8-TM-YeP"/>
                             <constraint firstItem="Gzv-lT-l5a" firstAttribute="top" secondItem="aTf-nl-NVq" secondAttribute="bottom" constant="6" id="L6f-1c-yEd"/>
-                            <constraint firstItem="uef-Og-iCZ" firstAttribute="leading" secondItem="Y95-k0-i5M" secondAttribute="trailing" constant="-32" id="SY2-sX-KCK"/>
+                            <constraint firstItem="uef-Og-iCZ" firstAttribute="leading" secondItem="Y95-k0-i5M" secondAttribute="trailing" constant="-167" id="SY2-sX-KCK"/>
                             <constraint firstAttribute="centerY" secondItem="uef-Og-iCZ" secondAttribute="centerY" id="Yio-VW-gM9"/>
                             <constraint firstItem="Y95-k0-i5M" firstAttribute="leading" secondItem="Gzv-lT-l5a" secondAttribute="trailing" constant="15" id="cIS-ji-kA3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uef-Og-iCZ" secondAttribute="trailing" constant="30" id="ctr-b5-tfv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uef-Og-iCZ" secondAttribute="trailing" constant="271" id="ctr-b5-tfv"/>
                             <constraint firstItem="FEA-ao-Qjf" firstAttribute="leading" secondItem="sK3-xS-ZTo" secondAttribute="leadingMargin" constant="66" id="d4x-6M-jWH"/>
                             <constraint firstItem="FEA-ao-Qjf" firstAttribute="leading" secondItem="Gzv-lT-l5a" secondAttribute="trailing" constant="8" id="g11-eY-oCJ"/>
                             <constraint firstItem="FEA-ao-Qjf" firstAttribute="trailing" secondItem="sK3-xS-ZTo" secondAttribute="trailingMargin" constant="36" id="gq7-Fn-mN2"/>
@@ -411,6 +420,7 @@
                     <connections>
                         <outlet property="albumArtThumb" destination="Gzv-lT-l5a" id="7MN-gK-jlZ"/>
                         <outlet property="nameLabel" destination="FEA-ao-Qjf" id="xn6-QV-jhX"/>
+                        <outlet property="playPauseBtn" destination="7Qu-cc-YEU" id="ye6-3z-L4J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEA-Jj-VqN" userLabel="First Responder" sceneMemberID="firstResponder"/>

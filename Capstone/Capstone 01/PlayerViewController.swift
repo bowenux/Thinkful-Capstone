@@ -117,6 +117,18 @@ class PlayerViewController:
         }
     }
     
+    func updatePlayback()
+    {
+        if self.jordanAudioManager.isPlaying
+        {
+            self.btnPlayPause.setTitle("Pause", forState: .Normal)
+        }
+        else
+        {
+            self.btnPlayPause.setTitle("Play", forState: .Normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -128,7 +140,7 @@ class PlayerViewController:
             object: nil
         )
         
-        // listener for playerLoadedNotification
+        // listener for playerTimeUpdatedNotification
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector: "updatePlayerTimes",
@@ -136,6 +148,13 @@ class PlayerViewController:
             object: nil
         )
         
+        // listener for playerPlaybackUpdatedNotification
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "updatePlayback",
+            name: playerPlaybackUpdatedNotification.key,
+            object: nil
+        )
     }
 
     override func didReceiveMemoryWarning() {
