@@ -238,6 +238,14 @@
                                 <color key="textColor" red="0.90587317940000001" green="0.90584605929999995" blue="0.90586143730000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-qD-gub">
+                                <rect key="frame" x="16" y="28" width="233" height="386"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xgG-gz-o7p" id="krg-jh-VbR"/>
+                                    <outlet property="delegate" destination="xgG-gz-o7p" id="pfn-HN-Cjd"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -255,6 +263,7 @@
                     <connections>
                         <outlet property="menuSubTitle" destination="zLJ-U6-OCg" id="kaG-cB-7no"/>
                         <outlet property="menuTitle" destination="si8-jV-oU3" id="dEn-AB-Esb"/>
+                        <outlet property="tableView" destination="UVg-qD-gub" id="WTy-uK-dpH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvh-XT-IXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -409,10 +418,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="KB8-TM-YeP"/>
                                 <exclude reference="B0e-ye-9sI"/>
                                 <exclude reference="cIS-ji-kA3"/>
                                 <exclude reference="kTd-la-Gbb"/>
-                                <exclude reference="KB8-TM-YeP"/>
                             </mask>
                         </variation>
                     </view>

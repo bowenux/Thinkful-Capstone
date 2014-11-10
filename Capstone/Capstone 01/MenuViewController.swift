@@ -8,15 +8,27 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController:
+    UIViewController
+    ,UITableViewDelegate
+    ,UITableViewDataSource
+{
 
     @IBOutlet weak var menuTitle: UILabel!
     @IBOutlet weak var menuSubTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var items: [String] = ["Browse", "Questions", "Settings"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // Customize apperance of table view
+        self.tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.scrollsToTop = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +46,20 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    // MARK: - Table View
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        
+        cell.textLabel.text = self.items[indexPath.row]
+        
+        return cell
+    }
+    
 }
