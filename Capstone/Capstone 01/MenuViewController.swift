@@ -19,6 +19,7 @@ class MenuViewController:
     @IBOutlet weak var tableView: UITableView!
     
     var items: [String] = ["Browse", "Questions", "Settings"]
+    var containerViewController = AppDelegate.getContainerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,11 @@ class MenuViewController:
         cell.textLabel.text = self.items[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("menu tapped")
+        self.containerViewController.showQuestions()
     }
     
 }

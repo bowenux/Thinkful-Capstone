@@ -14,9 +14,13 @@ class ContainerViewController: UIViewController {
     
     var audioTableNavigationController: UINavigationController!
     var audioTableViewController: AudioTableViewController!
+    var questionViewController: UIViewController!
+    let transitionManager = GlobalMenuTransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.redColor()
         
         showAudioInTable() // load table that will make API call
         initPlayerViewController() // create a player in a hidden state
@@ -25,6 +29,37 @@ class ContainerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func removeAllViewsInContainer()
+    {
+        for view in self.view.subviews
+        {
+            if view.tag != 100 {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    func showQuestions()
+    {
+     removeAllViewsInContainer()
+        // grab the AudioTableViewController
+        self.questionViewController = UIStoryboard.questionsViewController()
+        
+        // wrap the audioTableViewController in a navigation controller,
+        // so we can push views to it and display bar button items in the navigation bar
+        self.audioTableNavigationController = UINavigationController(rootViewController: questionViewController)
+        
+        // add audioTableViewController to the view
+        view.addSubview(self.audioTableNavigationController.view)
+        addChildViewController(self.audioTableNavigationController)
+        
+        // i'm not exactly sure what this does...
+        self.audioTableNavigationController.didMoveToParentViewController(self)
+        
+        
+        //self.transitionManager.menuViewController.performSegueWithIdentifier("CloseGlobalMenu", sender: self)
     }
     
     func showAudioInTable()
@@ -53,6 +88,8 @@ class ContainerViewController: UIViewController {
         delegate.playerViewController = playerViewController // update the playerViewController in the AppDelegate
         
         playerViewController.create() // put player in hidden container
+        playerViewController.view.tag = 100
+        
         view.insertSubview(playerViewController.view, atIndex: 2) // add player to ContainerViewController (still hidden)
         
         // I dont know what these do... seems to work if commented out
@@ -71,5 +108,9 @@ private extension UIStoryboard {
     
     class func audioTableViewController() -> AudioTableViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("AudioTableViewController") as? AudioTableViewController
+    }
+    
+    class func questionsViewController() -> UIViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("QuestionsViewController") as? UIViewController
     }
 }

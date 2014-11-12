@@ -32,16 +32,6 @@ class AudioDetailViewController:
         playerViewController.showMiniPlayer()
     }
     
-    // part of view life cycle
-    override func viewWillDisappear(animated: Bool)
-    {
-        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        var e = delegate.playerViewController
-        //e?.hide()
-        
-        super.viewWillDisappear(animated)
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()

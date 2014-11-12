@@ -12,8 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var containerViewController = ContainerViewController()
     var playerViewController: PlayerViewController?
     var jordanAudioManager = JordanAudioManager()
+    
+    class func getContainerViewController() -> ContainerViewController
+    {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        return delegate.containerViewController
+    }
     
     class func getPlayerViewController() -> PlayerViewController
     {
@@ -33,8 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Make ContainerViewController the "Initial View Controller"
-        let containerViewController = ContainerViewController()
-        window!.rootViewController = containerViewController
+        window!.rootViewController = self.containerViewController
         window!.makeKeyAndVisible()
 
         return true
