@@ -8,17 +8,38 @@
 
 import Foundation
 
-protocol GetAudioCallBack
+protocol APIDataManagerAudioDelegate
 {
-    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject])
+    func APIGetAllDataCallBack(senderClass: AnyObject, response: [JordanAudioObject])
+}
+protocol APIDataManagerLoginDelegate
+{
+    func APILoginCallBack(senderClass: AnyObject, response: AnyObject)
 }
 
 class APIDataManager
 {
     let client = APIClient()
-    var delegate: GetAudioCallBack?
+    var audioDelegate: APIDataManagerAudioDelegate?
+    var loginDelegate: APIDataManagerLoginDelegate?
     
     init() { }
+    
+    func login(u:String, p:String)
+    {
+        /*client.login(u, p: p,
+            {
+                (response :AnyObject) in
+                self.parseLogin(response)
+            },
+            failure:
+            {
+                (error :NSError) in
+                println("error - \(error)")
+            }
+        )*/
+        self.parseLogin("{my fake API response, to be replaced with real API call}")
+    }
     
     func getAllAudio()
     {
@@ -26,23 +47,36 @@ class APIDataManager
         {
             (response :AnyObject) in
             println("AudioObject at getAudio.complete()")
-            self.parse(response)
+            self.parseAudioObjects(response)
         },
         failure:
         {
             (error :NSError) in
-            // unable to communicate with api
             println("error - \(error)")
         })
-
-        //return parsedResponse!
     }
     
-    func parse(response: AnyObject) //-> [JordanAudioObject]
+    func parseLogin(response: AnyObject)
+    {
+        var parsedResponse: AnyObject = "myUniqueToken!!!!!lkndflkjsldfknqwoen"
+        
+        println(response)
+        
+        if let d = self.loginDelegate?
+        {
+            d.APILoginCallBack(self, response: parsedResponse)
+        }
+        else
+        {
+            println("No delegate set: APIDataManagerLoginDelegate")
+        }
+    }
+    
+    func parseAudioObjects(response: AnyObject) //-> [JordanAudioObject]
     {
         var parsedResponse:[JordanAudioObject] = []
         
-        println("AudioObject at parse()")
+        println("AudioObject at parseAudioObjects()")
         
         if let dataArray = response.valueForKey("data") as? [AnyObject] {
             
@@ -61,22 +95,16 @@ class APIDataManager
                 apiAudioItem.locationRecorded = dataObject.valueForKeyPath("location.name") as String
                 
                 parsedResponse.append(apiAudioItem)
-                
             }
         }
         
-        if let dmDelegate = self.delegate?
+        if let d = self.audioDelegate?
         {
-            
-            dmDelegate.didApiRespond(self, response: parsedResponse)
-            //self.delegate!.didApiRespond(self, response: parsedResponse)
-            
-        } else {
-            
-            println("No delegate set")
-            
+            d.APIGetAllDataCallBack(self, response: parsedResponse)
         }
-        
-        //return parsedResponse
+        else
+        {
+            println("No delegate set")
+        }
     }
 }

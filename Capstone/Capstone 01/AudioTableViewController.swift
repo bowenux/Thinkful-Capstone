@@ -13,7 +13,7 @@ class AudioTableViewController:
     UIActionSheetDelegate,
     UISearchBarDelegate,
     UISearchDisplayDelegate,
-    GetAudioCallBack
+    APIDataManagerAudioDelegate
 {
     let transitionManager = GlobalMenuTransitionManager()
     let dataManager = APIDataManager()
@@ -39,7 +39,7 @@ class AudioTableViewController:
         self.transitionManager.sourceViewController = self
         
         // call API
-        self.dataManager.delegate = self
+        self.dataManager.audioDelegate = self
         var audioData: () = self.dataManager.getAllAudio()
     }
     
@@ -79,9 +79,9 @@ class AudioTableViewController:
     }
     
     // MARK: - API Manager protocol methods
-    func didApiRespond(senderClass: AnyObject, response: [JordanAudioObject])
+    func APIGetAllDataCallBack(senderClass: AnyObject, response: [JordanAudioObject])
     {
-        println("AudioObject at didAPIRespond()")
+        println("AudioObject at APIGetAllDataCallBack(): \(response.count) audios to show")
         self.allAudio = response
         self.tableView.reloadData()
     }

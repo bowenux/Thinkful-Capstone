@@ -13,13 +13,20 @@ class MenuViewController:
     ,UITableViewDelegate
     ,UITableViewDataSource
 {
-
+    var jordanSession = AppDelegate.getJordanSession()
+    var items: [String] = ["Browse", "Questions", "Settings"]
+    var containerViewController = AppDelegate.getContainerViewController()
+    
     @IBOutlet weak var menuTitle: UILabel!
     @IBOutlet weak var menuSubTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var items: [String] = ["Browse", "Questions", "Settings"]
-    var containerViewController = AppDelegate.getContainerViewController()
+    
+    @IBAction func logoutAction(sender: AnyObject)
+    {
+       self.jordanSession.logout()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

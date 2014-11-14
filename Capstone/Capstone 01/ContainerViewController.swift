@@ -12,8 +12,10 @@ import UIKit
 //  allowing us to show multiple views at the same time (e.g., the playerViewController)
 class ContainerViewController: UIViewController {
     
+    var userLoggedIn = false
     var audioTableNavigationController: UINavigationController!
     var audioTableViewController: AudioTableViewController!
+    var loginViewController: LoginViewController!
     var questionViewController: UIViewController!
     let transitionManager = GlobalMenuTransitionManager()
     
@@ -22,8 +24,15 @@ class ContainerViewController: UIViewController {
         
         view.backgroundColor = UIColor.redColor()
         
-        showAudioInTable() // load table that will make API call
-        initPlayerViewController() // create a player in a hidden state
+        if self.userLoggedIn
+        {
+            showAudioInTable() // load table that will make API call
+            initPlayerViewController() // create a player in a hidden state
+        }
+        else
+        {
+            showLoginView()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,11 +105,31 @@ class ContainerViewController: UIViewController {
         addChildViewController(playerViewController)
         playerViewController.didMoveToParentViewController(self)
     }
+    
+    func showLoginView()
+    {
+        
+        self.loginViewController = UIStoryboard.loginViewController()
+        
+        
+        self.audioTableNavigationController = UINavigationController(rootViewController: loginViewController)
+        
+        // add audioTableViewController to the view
+        view.addSubview(self.audioTableNavigationController.view)
+        addChildViewController(self.audioTableNavigationController)
+        
+        // i'm not exactly sure what this does...
+        self.audioTableNavigationController.didMoveToParentViewController(self)
+    }
 }
 
 // Helper functions for grabbing ViewControllers from the storyboard(s)
 private extension UIStoryboard {
     class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+    class func loginViewController() -> LoginViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+    }
     
     class func playerViewController() -> PlayerViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("PlayerViewController") as? PlayerViewController

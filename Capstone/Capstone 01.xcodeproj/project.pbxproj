@@ -19,6 +19,8 @@
 		1DB13F8019DE3BC800A60A64 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB13F7E19DE3BC800A60A64 /* LaunchScreen.xib */; };
 		1DB13F8C19DE3BC800A60A64 /* Capstone_01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */; };
 		1DB9E7621A11AB1200DEFD4F /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */; };
+		1DB9E7641A144B5900DEFD4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */; };
+		1DB9E7661A144BAD00DEFD4F /* JordanSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7651A144BAD00DEFD4F /* JordanSession.swift */; };
 		1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */; };
 		1DDAA9711A090D6800BC897E /* NSNotificationCenterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */; };
 		1DE36B5419F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */; };
@@ -59,6 +61,8 @@
 		1DB13F8A19DE3BC800A60A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB13F8B19DE3BC800A60A64 /* Capstone_01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_01Tests.swift; sourceTree = "<group>"; };
 		1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1DB9E7651A144BAD00DEFD4F /* JordanSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanSession.swift; sourceTree = "<group>"; };
 		1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioManager.swift; sourceTree = "<group>"; };
 		1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterKeys.swift; sourceTree = "<group>"; };
 		1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMenuTransitionManager.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */,
 				1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */,
 				1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */,
+				1DB9E7651A144BAD00DEFD4F /* JordanSession.swift */,
 				1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */,
 				1DA3FAD91A00235D0074E869 /* SortAudioObject.swift */,
 			);
@@ -178,6 +183,7 @@
 				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
 				1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */,
 				1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */,
+				1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -351,8 +357,10 @@
 				1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */,
 				1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */,
 				1DB9E7621A11AB1200DEFD4F /* QuestionsViewController.swift in Sources */,
+				1DB9E7641A144B5900DEFD4F /* LoginViewController.swift in Sources */,
 				1DB13F7619DE3BC800A60A64 /* AppDelegate.swift in Sources */,
 				1DDAA9711A090D6800BC897E /* NSNotificationCenterKeys.swift in Sources */,
+				1DB9E7661A144BAD00DEFD4F /* JordanSession.swift in Sources */,
 				1D5DF7271A07101400292ACE /* MiniPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

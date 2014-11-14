@@ -12,9 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var jordanSession = JordanSession()
+    var jordanAudioManager = JordanAudioManager()
     var containerViewController = ContainerViewController()
     var playerViewController: PlayerViewController?
-    var jordanAudioManager = JordanAudioManager()
     
     class func getContainerViewController() -> ContainerViewController
     {
@@ -28,21 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return delegate.playerViewController!
     }
     
+    class func getJordanSession() -> JordanSession
+    {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        return delegate.jordanSession
+    }
+    
     class func audioManager() -> JordanAudioManager
     {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         return delegate.jordanAudioManager
     }
-        
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.containerViewController.userLoggedIn = self.jordanSession.loggedIn()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Make ContainerViewController the "Initial View Controller"
-        window!.rootViewController = self.containerViewController
-        window!.makeKeyAndVisible()
-
+        self.window!.rootViewController = self.containerViewController
+        self.window!.makeKeyAndVisible()
+        
         return true
     }
 
