@@ -14,12 +14,13 @@ class APIClient
     let BaseURL = "http://api.bowenux.com/v1/"
     let manager = AFHTTPRequestOperationManager()
 
-    func getAudio(completion :(AnyObject) -> (), failure :(NSError) -> ())
+    func getAudio(sessionToken:String, completion :(AnyObject) -> (), failure :(NSError) -> ())
     {
         println("APIClient.getAudio()")
         let apiMethodUrl = self.BaseURL + "audio"
+        let params = ["token":sessionToken]
         
-        manager.GET(apiMethodUrl, parameters: nil, success:
+        manager.GET(apiMethodUrl, parameters: params, success:
             {
                 (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
                 completion(responseObject)

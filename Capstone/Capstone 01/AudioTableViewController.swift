@@ -16,8 +16,9 @@ class AudioTableViewController:
     APIDataManagerAudioDelegate
 {
     let transitionManager = GlobalMenuTransitionManager()
-    let dataManager = APIDataManager()
+    let apiDataManager = APIDataManager()
     let sortableAudio = SortAudioObject()
+    var jordanSession = AppDelegate.getJordanSession()
     var allAudio:[JordanAudioObject] = []
     var filteredAudio:[JordanAudioObject] = []
     
@@ -39,8 +40,8 @@ class AudioTableViewController:
         self.transitionManager.sourceViewController = self
         
         // call API
-        self.dataManager.audioDelegate = self
-        var audioData: () = self.dataManager.getAllAudio()
+        self.apiDataManager.audioDelegate = self
+        self.apiDataManager.getAllAudio(self.jordanSession.sessionToken!)
     }
     
     override func viewDidAppear(animated: Bool) {

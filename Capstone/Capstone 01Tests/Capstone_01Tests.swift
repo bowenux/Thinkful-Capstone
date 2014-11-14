@@ -35,7 +35,7 @@ class Capstone_01Tests: XCTestCase {
 //        }
 //    }
     
-    func testAudio() {
+    /*func testAudio() {
         
         let apiExpectation = expectationWithDescription("request audio")
         
@@ -55,7 +55,7 @@ class Capstone_01Tests: XCTestCase {
                 error in
                 
         })
-    }
+    }*/
 
 
 }

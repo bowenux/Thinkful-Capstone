@@ -41,9 +41,9 @@ class APIDataManager
         self.parseLogin("{my fake API response, to be replaced with real API call}")
     }
     
-    func getAllAudio()
+    func getAllAudio(sessionToken:String)
     {
-        client.getAudio(
+        client.getAudio(sessionToken,
         {
             (response :AnyObject) in
             println("AudioObject at getAudio.complete()")
@@ -58,7 +58,7 @@ class APIDataManager
     
     func parseLogin(response: AnyObject)
     {
-        var parsedResponse: AnyObject = "myUniqueToken!!!!!lkndflkjsldfknqwoen"
+        var parsedResponse: AnyObject = "N16Ps9ICInxXfq2gQFzTC0Loj985ztlgVengxr1NBQsiDxJI0JYrJQ9eHeco!"
         
         println(response)
         
@@ -72,30 +72,34 @@ class APIDataManager
         }
     }
     
-    func parseAudioObjects(response: AnyObject) //-> [JordanAudioObject]
+    func parseAudioObjects(response: AnyObject)
     {
         var parsedResponse:[JordanAudioObject] = []
         
         println("AudioObject at parseAudioObjects()")
         
-        if let dataArray = response.valueForKey("data") as? [AnyObject] {
-            
+        if let dataArray = response.valueForKey("data") as? [AnyObject]
+        {
             for var i = 0; i < dataArray.count; i++
             {
                 var apiAudioItem = JordanAudioObject()
                 let dataObject: AnyObject = dataArray[i]
-                
-                //println(dataObject)
-                
                 apiAudioItem.name =             dataObject.valueForKeyPath("name") as String
                 apiAudioItem.albumArtThumb =    dataObject.valueForKeyPath("albumArtSmall") as String
                 apiAudioItem.albumArtLarge =    dataObject.valueForKeyPath("albumArtLarge") as String
                 apiAudioItem.urlSrc =           dataObject.valueForKeyPath("audioUrl") as String
                 apiAudioItem.dateRecorded =     dataObject.valueForKeyPath("date_recorded") as String
                 apiAudioItem.locationRecorded = dataObject.valueForKeyPath("location.name") as String
-                
                 parsedResponse.append(apiAudioItem)
             }
+        }
+        else if let errorArray = response.valueForKey("error") as? [AnyObject]
+        {
+            println(errorArray)
+        }
+        else
+        {
+            println("unknown response: \(response)")
         }
         
         if let d = self.audioDelegate?
