@@ -22,20 +22,51 @@ class LoginViewController:
     @IBAction func loginAction(sender: AnyObject)
     {
         // To do: add client side validation
+        var validForm = validateLoginForm()
         
-        self.spinnerOutlet.startAnimating()
+        if validForm
+        {
+            tryToLogin()
+        }
+        else
+        {
+            showValidationErrors()
+        }
+    }
+    
+    func validateLoginForm() -> Bool
+    {
+        var success = true
+        if self.emailInputOutlet.text == "" || self.passwordInputOutlet.text == ""
+        {
+            success = false
+        }
         
-        tryToLogin()
+        return success
+    }
+    
+    func showValidationErrors()
+    {
+        let alert = UIAlertView()
+        alert.title = "Try again"
+        alert.message = "Enter your email and password"
+        alert.addButtonWithTitle("Okay")
+        alert.show()
     }
     
     func tryToLogin()
     {
+        self.spinnerOutlet.startAnimating()
         self.apiDataManager.login(self.emailInputOutlet.text, p:self.passwordInputOutlet.text)
     }
     
     func showLoginFailedMessage()
     {
-        println("Login failed.. Please try again!")
+        let alert = UIAlertView()
+        alert.title = "Login Failed"
+        alert.message = "Please try again"
+        alert.addButtonWithTitle("Okay")
+        alert.show()
     }
     
     // MARK: APIDataManagerLoginDelegate protocol methods
