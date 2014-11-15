@@ -77,7 +77,7 @@ class LoginViewController:
         if response !== false
         {
             self.jordanSession.setSessionToken(response as NSString)
-            // how can I programatically create/invoke a segue to AudioTableViewController
+            AppDelegate.getContainerViewController().enterApp()
         }
         else
         {

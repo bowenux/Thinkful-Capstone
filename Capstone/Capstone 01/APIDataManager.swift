@@ -59,7 +59,6 @@ class APIDataManager
     {
         var parsedResponse: AnyObject = false // default
         
-        println(response)
         if let token = response.valueForKeyPath("data.token") as? String
         {
             parsedResponse = token

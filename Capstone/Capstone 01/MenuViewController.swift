@@ -24,7 +24,8 @@ class MenuViewController:
     
     @IBAction func logoutAction(sender: AnyObject)
     {
-       self.jordanSession.logout()
+        self.jordanSession.logout()
+        AppDelegate.getContainerViewController().exitApp()
     }
     
     

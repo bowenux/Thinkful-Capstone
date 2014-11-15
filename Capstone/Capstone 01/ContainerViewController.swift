@@ -26,12 +26,11 @@ class ContainerViewController: UIViewController {
         
         if self.userLoggedIn
         {
-            showAudioInTable() // load table that will make API call
-            initPlayerViewController() // create a player in a hidden state
+            enterApp()
         }
         else
         {
-            showLoginView()
+            exitApp()
         }
     }
 
@@ -40,7 +39,27 @@ class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func enterApp()
+    {
+        removeAllViewsInContainer()
+        showAudioInTable() // load table that will make API call
+        initPlayerViewController() // create a player in a hidden state
+    }
+    
+    func exitApp()
+    {
+        showLoginView()
+    }
+    
     func removeAllViewsInContainer()
+    {
+        for view in self.view.subviews
+        {
+            view.removeFromSuperview()
+        }
+    }
+    
+    func removeAllViewsExceptPlayer()
     {
         for view in self.view.subviews
         {
@@ -52,7 +71,8 @@ class ContainerViewController: UIViewController {
     
     func showQuestions()
     {
-     removeAllViewsInContainer()
+        removeAllViewsExceptPlayer()
+        
         // grab the AudioTableViewController
         self.questionViewController = UIStoryboard.questionsViewController()
         

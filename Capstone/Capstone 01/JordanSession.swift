@@ -46,8 +46,6 @@ class JordanSession
         self.sessionToken = nil
         self.userDefaults.removeObjectForKey(self.sessionTokenKey)
         self.userDefaults.synchronize()
-        
-        println("you have logged out. \"Force quit\" and re-open the app!")
     }
     
     
