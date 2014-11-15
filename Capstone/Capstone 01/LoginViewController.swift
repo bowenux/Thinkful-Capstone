@@ -17,9 +17,14 @@ class LoginViewController:
     
     @IBOutlet weak var emailInputOutlet: UITextField!
     @IBOutlet weak var passwordInputOutlet: UITextField!
+    @IBOutlet weak var spinnerOutlet: UIActivityIndicatorView!
     
     @IBAction func loginAction(sender: AnyObject)
     {
+        // To do: add client side validation
+        
+        self.spinnerOutlet.startAnimating()
+        
         tryToLogin()
     }
     
@@ -37,6 +42,7 @@ class LoginViewController:
     
     func APILoginCallBack(senderClass: AnyObject, response: AnyObject)
     {
+        self.spinnerOutlet.stopAnimating()
         if response !== false
         {
             self.jordanSession.setSessionToken(response as NSString)
