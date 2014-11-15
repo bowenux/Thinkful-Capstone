@@ -80,11 +80,18 @@ class AudioTableViewController:
     }
     
     // MARK: - API Manager protocol methods
-    func APIGetAllDataCallBack(senderClass: AnyObject, response: [JordanAudioObject])
+    func APIGetAllDataCallBack(senderClass: AnyObject, success: Bool, response: [JordanAudioObject])
     {
         println("AudioObject at APIGetAllDataCallBack(): \(response.count) audios to show")
-        self.allAudio = response
-        self.tableView.reloadData()
+        if success
+        {
+            self.allAudio = response
+            self.tableView.reloadData()
+        }
+        else
+        {
+            println("API returned error")
+        }
     }
     
     // MARK: - Search protocol methods

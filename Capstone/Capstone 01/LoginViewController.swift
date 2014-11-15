@@ -15,6 +15,9 @@ class LoginViewController:
     let apiDataManager = APIDataManager()
     var jordanSession = AppDelegate.getJordanSession()
     
+    @IBOutlet weak var emailInputOutlet: UITextField!
+    @IBOutlet weak var passwordInputOutlet: UITextField!
+    
     @IBAction func loginAction(sender: AnyObject)
     {
         tryToLogin()
@@ -22,7 +25,7 @@ class LoginViewController:
     
     func tryToLogin()
     {
-        self.apiDataManager.login("myUsername", p:"myPassword")
+        self.apiDataManager.login(self.emailInputOutlet.text, p:self.passwordInputOutlet.text)
     }
     
     func showLoginFailedMessage()
@@ -37,6 +40,7 @@ class LoginViewController:
         if response !== false
         {
             self.jordanSession.setSessionToken(response as NSString)
+            // how can I programatically create/invoke a segue to AudioTableViewController
         }
         else
         {

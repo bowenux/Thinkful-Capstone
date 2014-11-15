@@ -10,7 +10,7 @@ import Foundation
 
 protocol APIDataManagerAudioDelegate
 {
-    func APIGetAllDataCallBack(senderClass: AnyObject, response: [JordanAudioObject])
+    func APIGetAllDataCallBack(senderClass: AnyObject, success: Bool, response: [JordanAudioObject])
 }
 protocol APIDataManagerLoginDelegate
 {
@@ -27,7 +27,7 @@ class APIDataManager
     
     func login(u:String, p:String)
     {
-        /*client.login(u, p: p,
+        client.login(u, p: p,
             {
                 (response :AnyObject) in
                 self.parseLogin(response)
@@ -37,8 +37,7 @@ class APIDataManager
                 (error :NSError) in
                 println("error - \(error)")
             }
-        )*/
-        self.parseLogin("{my fake API response, to be replaced with real API call}")
+        )
     }
     
     func getAllAudio(sessionToken:String)
@@ -58,9 +57,18 @@ class APIDataManager
     
     func parseLogin(response: AnyObject)
     {
-        var parsedResponse: AnyObject = "N16Ps9ICInxXfq2gQFzTC0Loj985ztlgVengxr1NBQsiDxJI0JYrJQ9eHeco!"
+        var parsedResponse: AnyObject = false // default
         
         println(response)
+        if let token = response.valueForKeyPath("data.token") as? String
+        {
+            parsedResponse = token
+        }
+        else if let error = response.valueForKeyPath("error.message") as? String
+        {
+            println("error: \(error)")
+        }
+        
         
         if let d = self.loginDelegate?
         {
@@ -75,6 +83,7 @@ class APIDataManager
     func parseAudioObjects(response: AnyObject)
     {
         var parsedResponse:[JordanAudioObject] = []
+        var success:Bool = true
         
         println("AudioObject at parseAudioObjects()")
         
@@ -93,22 +102,24 @@ class APIDataManager
                 parsedResponse.append(apiAudioItem)
             }
         }
-        else if let errorArray = response.valueForKey("error") as? [AnyObject]
+        else if let errorData: AnyObject = response.valueForKey("error") as AnyObject!
         {
-            println(errorArray)
+            //var errorCode = errorData.valueForKey("code") as String
+            //var errorMessage = errorData.valueForKey("message") as String
+            success = false // API returned error..
         }
         else
         {
-            println("unknown response: \(response)")
+            println("unknown response...")
         }
         
         if let d = self.audioDelegate?
         {
-            d.APIGetAllDataCallBack(self, response: parsedResponse)
+            d.APIGetAllDataCallBack(self,success: success, response: parsedResponse)
         }
         else
         {
-            println("No delegate set")
+            println("No delegate set: APIGetAllDataCallBack()")
         }
     }
 }
