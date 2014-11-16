@@ -21,6 +21,7 @@ class AudioTableViewController:
     var jordanSession = AppDelegate.getJordanSession()
     var allAudio:[JordanAudioObject] = []
     var filteredAudio:[JordanAudioObject] = []
+    var initialDisplay = true
     
     @IBAction func filterAudio(sender: AnyObject)
     {
@@ -47,7 +48,12 @@ class AudioTableViewController:
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.tableView.contentOffset = CGPointMake(0, -20) // hide search bar by default (swipe down to see)
+        if self.initialDisplay
+        {
+            // hide search bar by default (swipe down to see)
+            self.tableView.contentOffset = CGPointMake(0, -20)
+            self.initialDisplay = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
