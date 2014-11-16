@@ -81,7 +81,7 @@ class ContainerViewController: UIViewController {
         self.audioTableNavigationController = UINavigationController(rootViewController: questionViewController)
         
         // add audioTableViewController to the view
-        view.addSubview(self.audioTableNavigationController.view)
+        view.insertSubview(self.audioTableNavigationController.view, belowSubview: AppDelegate.getPlayerViewController().view)
         addChildViewController(self.audioTableNavigationController)
         
         // i'm not exactly sure what this does...
