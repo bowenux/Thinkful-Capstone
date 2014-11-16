@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import MediaPlayer
 
 class JordanAudioManager
 {
@@ -15,12 +16,20 @@ class JordanAudioManager
     var currentJordanAudioObject: JordanAudioObject?
     var isPlaying: Bool = false
     var isPlayerEmpty: Bool = true
+    var isPlayerItemInit: Bool = false
     var audioCurrentTime: String = ""
     var audioTotalTime: String = ""
     var audioTotalTimeInSeconds: Float64 = 0
     var audioPercentComplete: Float = 0
+    let infoCenter = MPNowPlayingInfoCenter.defaultCenter()
     
     init(){}
+    
+    func mediaPicker(mediaPicker: MPMediaPickerController!,
+        didPickMediaItems mediaItemCollection: MPMediaItemCollection!)
+    {
+        println("Media Picker returned")
+    }
     
     func prepare(audioObject: JordanAudioObject) -> ()
     {
@@ -44,6 +53,11 @@ class JordanAudioManager
     
     func updateAudioTimes()
     {
+        if !self.isPlayerItemInit
+        {
+            updateInfoCenterWithPlayerItem(self.isPlaying)
+        }
+        
         if let playerItem = self.player?.currentItem
         {
             // update time labels
@@ -54,6 +68,27 @@ class JordanAudioManager
             
             // send notification that player has been updated
             NSNotificationCenter.defaultCenter().postNotificationName(playerTimeUpdatedNotification.key, object: self)
+        }
+    }
+    
+    func updateInfoCenterWithPlayerItem(playing: Bool)
+    {
+        if let hasPlayerItem = self.player?.currentItem
+        {
+            if let hasJordanAudioObject = self.currentJordanAudioObject
+            {
+                let playback = (playing) ? "1.0" : "0.0"
+                
+                self.infoCenter.nowPlayingInfo = [
+                    MPMediaItemPropertyTitle:hasJordanAudioObject.name,
+                    MPMediaItemPropertyArtist:hasJordanAudioObject.speaker,
+                    MPMediaItemPropertyPlaybackDuration:CMTimeGetSeconds(hasPlayerItem.duration),
+                    MPNowPlayingInfoPropertyPlaybackRate: playback,
+                    MPNowPlayingInfoPropertyElapsedPlaybackTime: CMTimeGetSeconds(hasPlayerItem.currentTime()),
+                    //MPMediaItemPropertyArtwork:hasJordanAudioObject.albumArtLarge
+                ]
+            }
+            self.isPlayerItemInit = true
         }
     }
     
@@ -125,10 +160,16 @@ class JordanAudioManager
             self.player?.play()
             self.isPlaying = true
             
+            if self.isPlayerItemInit
+            {
+                updateInfoCenterWithPlayerItem(self.isPlaying)
+            }
+            
             // send notification that player has been played/paused
             NSNotificationCenter.defaultCenter().postNotificationName(playerPlaybackUpdatedNotification.key, object: self)
             
             println("playing...")
+            
         }
     }
     
@@ -136,6 +177,11 @@ class JordanAudioManager
     {
         self.player?.pause()
         self.isPlaying = false
+        
+        if self.isPlayerItemInit
+        {
+            updateInfoCenterWithPlayerItem(self.isPlaying)
+        }
         
         // send notification that player has been played/paused
         NSNotificationCenter.defaultCenter().postNotificationName(playerPlaybackUpdatedNotification.key, object: self)

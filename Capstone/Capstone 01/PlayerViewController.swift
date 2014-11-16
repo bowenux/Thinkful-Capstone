@@ -161,4 +161,44 @@ class PlayerViewController:
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    // MARK: - Respond to remote controls
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
+        let rc = event.subtype
+        println("received remote control: \(rc.rawValue)")
+        
+        if let p = self.jordanAudioManager.player {
+            switch rc
+            {
+                case .RemoteControlTogglePlayPause:
+                    self.jordanAudioManager.togglePlayPause()
+                    println("remote toggleplaypause()")
+                    
+                case .RemoteControlPlay:
+                    self.jordanAudioManager.play()
+                    println("remote play()")
+                
+                case .RemoteControlPause:
+                    self.jordanAudioManager.pause()
+                    println("remote pause()")
+                
+                default:break
+            }
+        } else {
+            //player not initiated
+        }
+    }
+
 }

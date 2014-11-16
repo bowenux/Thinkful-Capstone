@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class AudioDetailViewController:
     UIViewController
@@ -56,40 +55,4 @@ class AudioDetailViewController:
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
-    // ======== respond to remote controls
-   /*
-    override func canBecomeFirstResponder() -> Bool {
-        return true
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.becomeFirstResponder()
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-    }
-    
-    override func remoteControlReceivedWithEvent(event: UIEvent) {
-        let rc = event.subtype
-        println("received remote control ")
-        
-        if let p = self.player {
-            switch rc {
-            case .RemoteControlTogglePlayPause:
-                if p.externalPlaybackActive { p.pause() } else { p.play() }
-            case .RemoteControlPlay:
-                p.play()
-            case .RemoteControlPause:
-                p.pause()
-            default:break
-            }
-        } else {
-            //player not initiated
-        }
-    }
-    */
-    
 }
