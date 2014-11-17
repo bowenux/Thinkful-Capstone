@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum AppSections : Int {
+    case Browse
+    case Questions
+    case Settings
+}
+
 class MenuViewController:
     UIViewController
     ,UITableViewDelegate
@@ -71,9 +77,23 @@ class MenuViewController:
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("menu tapped")
-        self.containerViewController.showQuestions()
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        println("menu tapped at: \(indexPath)")
+        let nextSection = self.items[indexPath.row]
+        switch nextSection
+        {
+            case "Browse":
+                self.containerViewController.showAudioInTable()
+                
+            case "Questions":
+                self.containerViewController.showQuestions()
+                
+            case "":
+                self.containerViewController.showQuestions()
+                
+            default:break
+        }
     }
     
 }

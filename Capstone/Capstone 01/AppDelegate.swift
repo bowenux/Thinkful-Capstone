@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.containerViewController.userLoggedIn = self.jordanSession.loggedIn()
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        self.window!.backgroundColor = UIColor.brownColor()
+        
         // Make ContainerViewController the "Initial View Controller"
         self.window!.rootViewController = self.containerViewController
         self.window!.makeKeyAndVisible()

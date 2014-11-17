@@ -31,6 +31,7 @@
 		1DF249AB19EC8735004E4F4C /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */; };
 		1DF249AC19EC875D004E4F4C /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0819E378B7005B486B /* APIDataManager.swift */; };
 		1DF249AD19EC878B004E4F4C /* JordanAudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DECDA0A19E3792C005B486B /* JordanAudioObject.swift */; };
+		1DF40CAE1A196F95007DD893 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF40CAD1A196F95007DD893 /* WelcomeViewController.swift */; };
 		F417135219E35248000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
 		F417135319E35363000A6202 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417135119E35248000A6202 /* APIClient.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
 		1DEFB79219E0ADA200B478CA /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		1DF249AA19EC8735004E4F4C /* DataManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
+		1DF40CAD1A196F95007DD893 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		30D30700CEE5D7D98669365B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		88249390D146DA9B535B2E86 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,11 +181,12 @@
 				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
 				1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */,
 				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
-				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
-				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
-				1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */,
-				1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */,
 				1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */,
+				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
+				1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */,
+				1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */,
+				1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */,
+				1DF40CAD1A196F95007DD893 /* WelcomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				1DE36B5419F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift in Sources */,
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
 				1D50EDB319FDC9960012BF66 /* PlayerViewController.swift in Sources */,
+				1DF40CAE1A196F95007DD893 /* WelcomeViewController.swift in Sources */,
 				1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */,
 				1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */,
 				1DB9E7621A11AB1200DEFD4F /* QuestionsViewController.swift in Sources */,

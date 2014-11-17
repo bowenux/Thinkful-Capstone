@@ -15,7 +15,7 @@ class ContainerViewController: UIViewController {
     var userLoggedIn = false
     var audioTableNavigationController: UINavigationController!
     var audioTableViewController: AudioTableViewController!
-    var loginViewController: LoginViewController!
+    var welcomeViewController: WelcomeViewController!
     var questionViewController: UIViewController!
     let transitionManager = GlobalMenuTransitionManager()
     
@@ -42,13 +42,13 @@ class ContainerViewController: UIViewController {
     func enterApp()
     {
         removeAllViewsInContainer()
-        showAudioInTable() // load table that will make API call
         initPlayerViewController() // create a player in a hidden state
+        showAudioInTable() // load table that will make API call
     }
     
     func exitApp()
     {
-        showLoginView()
+        showWelcomeView()
     }
     
     func removeAllViewsInContainer()
@@ -101,7 +101,8 @@ class ContainerViewController: UIViewController {
         self.audioTableNavigationController = UINavigationController(rootViewController: audioTableViewController)
         
         // add audioTableViewController to the view
-        view.addSubview(self.audioTableNavigationController.view)
+        //view.addSubview(self.audioTableNavigationController.view)
+        view.insertSubview(self.audioTableNavigationController.view, belowSubview: AppDelegate.getPlayerViewController().view)
         addChildViewController(self.audioTableNavigationController)
         
         // i'm not exactly sure what this does...
@@ -126,19 +127,19 @@ class ContainerViewController: UIViewController {
         playerViewController.didMoveToParentViewController(self)
     }
     
-    func showLoginView()
+    func showWelcomeView()
     {
         
-        self.loginViewController = UIStoryboard.loginViewController()
+        self.welcomeViewController = UIStoryboard.welcomeViewController()
         
         
-        self.audioTableNavigationController = UINavigationController(rootViewController: loginViewController)
-        
+        self.audioTableNavigationController = UINavigationController(rootViewController: welcomeViewController)
+        self.audioTableNavigationController.navigationBar.backgroundColor = UIColor.whiteColor()
         // add audioTableViewController to the view
         view.addSubview(self.audioTableNavigationController.view)
         addChildViewController(self.audioTableNavigationController)
         
-        // i'm not exactly sure what this does...
+        
         self.audioTableNavigationController.didMoveToParentViewController(self)
     }
 }
@@ -147,8 +148,8 @@ class ContainerViewController: UIViewController {
 private extension UIStoryboard {
     class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
     
-    class func loginViewController() -> LoginViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+    class func welcomeViewController() -> WelcomeViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("WelcomeViewController") as? WelcomeViewController
     }
     
     class func playerViewController() -> PlayerViewController? {
