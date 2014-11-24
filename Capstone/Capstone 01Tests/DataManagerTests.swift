@@ -11,7 +11,7 @@ import XCTest
 
 class DataManagerTests: XCTestCase {
     
-    var dm = APIDataManager()
+    //var dm = APIDataManager()
     
     override func setUp() {
         super.setUp()

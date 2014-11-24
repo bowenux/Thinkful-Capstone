@@ -1,0 +1,47 @@
+//
+//  PersistanceTests.swift
+//  Capstone 01
+//
+//  Created by Rick Bowen on 11/24/14.
+//  Copyright (c) 2014 Rick Bowen. All rights reserved.
+//
+
+import UIKit
+import XCTest
+
+class PersistanceTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        MagicalRecord.setupAutoMigratingCoreDataStack()
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testCreateJordanAudioObject() {
+        var audioEntity = JordanAudioEntity.MR_createEntity() as JordanAudioEntity
+        audioEntity.name = "name test"
+        audioEntity.managedObjectContext?.MR_saveToPersistentStoreAndWait()
+        
+        var fetchEntity = JordanAudioEntity.MR_findAll()
+        print(fetchEntity)
+    }
+    
+//    func testExample() {
+//        // This is an example of a functional test case.
+//        XCTAssert(true, "Pass")
+//    }
+//
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measureBlock() {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
+
+}
