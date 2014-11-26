@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         self.window!.backgroundColor = UIColor.brownColor()
+        UIBarButtonItem.appearance().tintColor = UIColor.magentaColor()
         
         // Make ContainerViewController the "Initial View Controller"
         self.window!.rootViewController = self.containerViewController

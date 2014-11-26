@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A737D42C86D74A2F84108AA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D30700CEE5D7D98669365B /* libPods.a */; };
+		1D023D391A26590D0013FC65 /* JordanTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D023D381A26590D0013FC65 /* JordanTextField.swift */; };
+		1D38F1281A26329000153A51 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38F1271A26329000153A51 /* LoginTableViewController.swift */; };
 		1D50EDB319FDC9960012BF66 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */; };
 		1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */; };
 		1D5DF7271A07101400292ACE /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D023D381A26590D0013FC65 /* JordanTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanTextField.swift; sourceTree = "<group>"; };
+		1D38F1271A26329000153A51 /* LoginTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		1D50EDB219FDC9960012BF66 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D023D3A1A2669F70013FC65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D023D381A26590D0013FC65 /* JordanTextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1DB13F6719DE3BC800A60A64 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,7 @@
 		1DB13F7219DE3BC800A60A64 /* Capstone 01 */ = {
 			isa = PBXGroup;
 			children = (
+				1D023D3A1A2669F70013FC65 /* Views */,
 				1DBA3C8819F5EC2300587518 /* Controllers */,
 				1DBA3C8719F5E93100587518 /* Models */,
 				1DB13F7519DE3BC800A60A64 /* AppDelegate.swift */,
@@ -181,6 +194,7 @@
 				1DEFB77319E0A30B00B478CA /* AudioTableViewController.swift */,
 				1DB13F7719DE3BC800A60A64 /* AudioDetailViewController.swift */,
 				1D50EDB419FEE4080012BF66 /* ContainerViewController.swift */,
+				1D38F1271A26329000153A51 /* LoginTableViewController.swift */,
 				1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */,
 				1DE36B5519F9D27E00C3EE49 /* MenuViewController.swift */,
 				1D5DF7261A07101400292ACE /* MiniPlayerViewController.swift */,
@@ -350,6 +364,7 @@
 			files = (
 				1DA3FADA1A00235D0074E869 /* SortAudioObject.swift in Sources */,
 				1DB13F7819DE3BC800A60A64 /* AudioDetailViewController.swift in Sources */,
+				1D38F1281A26329000153A51 /* LoginTableViewController.swift in Sources */,
 				1DECDA0919E378B7005B486B /* APIDataManager.swift in Sources */,
 				1DE36B5619F9D27E00C3EE49 /* MenuViewController.swift in Sources */,
 				F417135219E35248000A6202 /* APIClient.swift in Sources */,
@@ -358,6 +373,7 @@
 				1DECDA0B19E3792C005B486B /* JordanAudioObject.swift in Sources */,
 				1D50EDB319FDC9960012BF66 /* PlayerViewController.swift in Sources */,
 				1DF40CAE1A196F95007DD893 /* WelcomeViewController.swift in Sources */,
+				1D023D391A26590D0013FC65 /* JordanTextField.swift in Sources */,
 				1D50EDB519FEE4080012BF66 /* ContainerViewController.swift in Sources */,
 				1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */,
 				1DB9E7621A11AB1200DEFD4F /* QuestionsViewController.swift in Sources */,

@@ -36,6 +36,13 @@ class WelcomeViewController:
         self.loginBtnOutlet.layer.borderColor = self.brandedBlue.CGColor
         
         
+       // navigationController?.hidesBarsOnTap = true
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func didReceiveMemoryWarning()

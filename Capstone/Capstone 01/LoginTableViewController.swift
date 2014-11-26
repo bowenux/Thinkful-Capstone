@@ -1,19 +1,19 @@
 //
-//  LoginViewController.swift
+//  LoginTableViewController.swift
 //  Capstone 01
 //
-//  Created by Rick Bowen on 11/12/14.
+//  Created by Rick Bowen on 11/26/14.
 //  Copyright (c) 2014 Rick Bowen. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController:
-    UIViewController
-    ,APIDataManagerLoginDelegate
-{
+class LoginTableViewController: UITableViewController, UITextFieldDelegate, APIDataManagerLoginDelegate {
+    
     let apiDataManager = APIDataManager()
     var jordanSession = AppDelegate.getJordanSession()
+    
+    
     
     @IBOutlet weak var emailInputOutlet: UITextField!
     @IBOutlet weak var passwordInputOutlet: UITextField!
@@ -21,7 +21,11 @@ class LoginViewController:
     
     @IBAction func loginAction(sender: AnyObject)
     {
-        // To do: add client side validation
+        submitLoginForm()
+    }
+    
+    func submitLoginForm()
+    {
         var validForm = validateLoginForm()
         
         if validForm
@@ -69,7 +73,48 @@ class LoginViewController:
         alert.show()
     }
     
-    // MARK: APIDataManagerLoginDelegate protocol methods
+    // MARK: - UITextFieldDelegate protocol methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        println("textfield enter()")
+        
+        if textField.tag == 1 {
+            // email field
+            self.passwordInputOutlet.becomeFirstResponder()
+        } else {
+            // password field
+            textField.resignFirstResponder()
+            submitLoginForm()
+        }
+        
+        return true
+    }
+    
+    
+    
+    // MARK: - View lifecycle methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.apiDataManager.loginDelegate = self
+        self.emailInputOutlet.delegate = self
+        self.passwordInputOutlet.delegate = self
+        
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        self.emailInputOutlet.becomeFirstResponder()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: - APIDataManagerLoginDelegate protocol methods
     
     func APILoginCallBack(senderClass: AnyObject, response: AnyObject)
     {
@@ -87,18 +132,10 @@ class LoginViewController:
         //testing
         println("after trying to login, my jordanSession token is: \(jordanSession.sessionToken)")
     }
+
     
-    // MARK: View lifecycle methods
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        self.apiDataManager.loginDelegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: - Table view data source
+
+   
+
 }

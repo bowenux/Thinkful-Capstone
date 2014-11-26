@@ -15,15 +15,14 @@ class ContainerViewController: UIViewController {
     var userLoggedIn = false
     var audioTableNavigationController: UINavigationController!
     var audioTableViewController: AudioTableViewController!
+    var welcomeNavigationController: UINavigationController!
     var welcomeViewController: WelcomeViewController!
     var questionViewController: UIViewController!
     let transitionManager = GlobalMenuTransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.redColor()
-        
+                
         if self.userLoggedIn
         {
             enterApp()
@@ -129,24 +128,34 @@ class ContainerViewController: UIViewController {
     
     func showWelcomeView()
     {
-        
+        self.welcomeNavigationController = UIStoryboard.welcomeNavigationController()
         self.welcomeViewController = UIStoryboard.welcomeViewController()
         
         
         self.audioTableNavigationController = UINavigationController(rootViewController: welcomeViewController)
         self.audioTableNavigationController.navigationBar.backgroundColor = UIColor.whiteColor()
+        
         // add audioTableViewController to the view
-        view.addSubview(self.audioTableNavigationController.view)
-        addChildViewController(self.audioTableNavigationController)
+//        view.addSubview(self.audioTableNavigationController.view)
+//        addChildViewController(self.audioTableNavigationController)
         
         
-        self.audioTableNavigationController.didMoveToParentViewController(self)
+        view.addSubview(self.welcomeNavigationController.view)
+        addChildViewController(self.welcomeNavigationController)
+
+        
+        
+        //self.audioTableNavigationController.didMoveToParentViewController(self)
     }
 }
 
 // Helper functions for grabbing ViewControllers from the storyboard(s)
 private extension UIStoryboard {
     class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+    class func welcomeNavigationController() -> UINavigationController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("WelcomeNavigationController") as? UINavigationController
+    }
     
     class func welcomeViewController() -> WelcomeViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("WelcomeViewController") as? WelcomeViewController
