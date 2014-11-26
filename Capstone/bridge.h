@@ -13,5 +13,3 @@
 #endif
 
 #import "AFNetworking/AFNetworking.h"
-#import <MagicalRecord/CoreData+MagicalRecord.h>
-#import "JordanAudioEntity.h"
