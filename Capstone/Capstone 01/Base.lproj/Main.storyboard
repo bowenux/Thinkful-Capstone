@@ -593,7 +593,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GB1-2s-cui" id="GYg-Bi-COt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1f-Wj-kWp" customClass="JordanTextField" customModule="Capstone_01" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="thinkful" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1f-Wj-kWp" customClass="JordanTextField" customModule="Capstone_01" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="6qy-eP-KIv"/>
@@ -615,7 +615,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z2i-bM-NZM" id="ccU-ET-D5H">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRJ-H2-EVY" customClass="JordanTextField" customModule="Capstone_01" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="thinkful" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRJ-H2-EVY" customClass="JordanTextField" customModule="Capstone_01" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="-1" width="600" height="45.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="46" id="M3K-ES-7p4"/>
