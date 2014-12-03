@@ -47,6 +47,7 @@ class JordanAudioManager
         // allow all to recieve remote control events (i.e., control center)
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
+        
         // send notification that player has been loaded
         NSNotificationCenter.defaultCenter().postNotificationName(playerLoadedNotification.key, object: self)
     }
@@ -62,10 +63,15 @@ class JordanAudioManager
         {
             // update time labels
             self.audioTotalTimeInSeconds = CMTimeGetSeconds(playerItem.duration)
-            self.audioTotalTime = convertSecondsToHMMSS(self.audioTotalTimeInSeconds)
-            self.audioCurrentTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.currentTime()) )
-            self.audioPercentComplete = calcPercentComplete(CMTimeGetSeconds(playerItem.currentTime()), complete: CMTimeGetSeconds(playerItem.duration))
             
+            // audioTotalTimeInSeconds can be nan while file is downloading
+            if !self.audioTotalTimeInSeconds.isNaN
+            {
+                self.audioTotalTime = convertSecondsToHMMSS(self.audioTotalTimeInSeconds)
+                self.audioCurrentTime = convertSecondsToHMMSS( CMTimeGetSeconds(playerItem.currentTime()) )
+                self.audioPercentComplete = calcPercentComplete(CMTimeGetSeconds(playerItem.currentTime()), complete: CMTimeGetSeconds(playerItem.duration))
+
+            }
             // send notification that player has been updated
             NSNotificationCenter.defaultCenter().postNotificationName(playerTimeUpdatedNotification.key, object: self)
         }

@@ -23,6 +23,7 @@
 		1DB9E7621A11AB1200DEFD4F /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */; };
 		1DB9E7641A144B5900DEFD4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */; };
 		1DB9E7661A144BAD00DEFD4F /* JordanSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB9E7651A144BAD00DEFD4F /* JordanSession.swift */; };
+		1DC236CF1A2BE6470026FE3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC236CE1A2BE6470026FE3A /* AVFoundation.framework */; };
 		1DDAA96D1A083CE000BC897E /* JordanAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */; };
 		1DDAA9711A090D6800BC897E /* NSNotificationCenterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */; };
 		1DE36B5419F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */; };
@@ -68,6 +69,7 @@
 		1DB9E7611A11AB1200DEFD4F /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		1DB9E7631A144B5900DEFD4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1DB9E7651A144BAD00DEFD4F /* JordanSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanSession.swift; sourceTree = "<group>"; };
+		1DC236CE1A2BE6470026FE3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1DDAA96C1A083CE000BC897E /* JordanAudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JordanAudioManager.swift; sourceTree = "<group>"; };
 		1DDAA9701A090D6800BC897E /* NSNotificationCenterKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterKeys.swift; sourceTree = "<group>"; };
 		1DE36B5319F9C7AC00C3EE49 /* GlobalMenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMenuTransitionManager.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC236CF1A2BE6470026FE3A /* AVFoundation.framework in Frameworks */,
 				0A737D42C86D74A2F84108AA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +211,7 @@
 		60A97A158EF60EB252D4239D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DC236CE1A2BE6470026FE3A /* AVFoundation.framework */,
 				30D30700CEE5D7D98669365B /* libPods.a */,
 			);
 			name = Frameworks;
@@ -273,6 +277,7 @@
 				TargetAttributes = {
 					1DB13F6F19DE3BC800A60A64 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 23YT9N5U64;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -509,11 +514,14 @@
 			baseConfigurationReference = 3D3EA1FAC938CE8E4EFBBDB1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Capstone 01/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
@@ -523,11 +531,14 @@
 			baseConfigurationReference = 88249390D146DA9B535B2E86 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Capstone 01/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;

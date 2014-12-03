@@ -13,6 +13,7 @@ class PlayerViewController:
 {
     var jordanAudioManager = AppDelegate.audioManager()
     var audioProgressSliderIsBusy:Bool = false
+    let miniPlayerHeight: CGFloat = 70
     
     @IBOutlet weak var miniPlayerContainer: UIView!
     @IBOutlet weak var btnPlayPause: UIButton!
@@ -20,7 +21,7 @@ class PlayerViewController:
     @IBOutlet weak var audioAlbumArt: UIImageView!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
-    @IBOutlet weak var audioProgressBar: UIProgressView!
+
     @IBOutlet weak var audioProgressSlider: UISlider!
     @IBOutlet weak var audioSeekTimeLabel: UILabel!
     
@@ -71,7 +72,7 @@ class PlayerViewController:
         self.miniPlayerContainer.alpha = 1
         
         // slide up this view controller
-        let verticalOffset = self.view.frame.size.height - 50
+        let verticalOffset = self.view.frame.size.height - self.miniPlayerHeight
         self.view.frame = CGRectMake( 0, verticalOffset, self.view.frame.size.width, self.view.frame.size.height );
     }
     
@@ -110,7 +111,7 @@ class PlayerViewController:
     {
         self.currentTimeLabel.text = self.jordanAudioManager.audioCurrentTime
         self.totalTimeLabel.text = self.jordanAudioManager.audioTotalTime
-        self.audioProgressBar.setProgress(self.jordanAudioManager.audioPercentComplete, animated: true)
+        //self.audioProgressBar.setProgress(self.jordanAudioManager.audioPercentComplete, animated: true)
         if !self.audioProgressSliderIsBusy
         {
             self.audioProgressSlider.setValue(self.jordanAudioManager.audioPercentComplete, animated: true)
@@ -131,6 +132,9 @@ class PlayerViewController:
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
         // listener for playerLoadedNotification
         NSNotificationCenter.defaultCenter().addObserver(
